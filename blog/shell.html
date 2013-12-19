@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="Stylesheet" type="text/css" href="../head.css">
+<title>Linux Shell</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<section id="container">
+    <section id="masthead">
+    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
+    <h2>By <span class="author">waikeung</a></h2>
+    <nav>
+        <a class="menu" href="../index.html">Home</a>
+        <a class="menu" href="../blog/index.html">Archive</a>
+        <a class="menu" href="../code.html">Code</a>
+        <a class="menu" href="../note.html">Note</a>
+        <a class="menu" href="../about.html">About</a>
+    </nav>
+    </section>
+
+<div id="main">
+
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">What's Shell</a>
+<ul>
+<li><a href="#toc_0.1.1">变量(Variable)</a>
+<li><a href="#toc_0.1.2">Shell中的特殊符号</a>
+<li><a href="#toc_0.1.3">基本命令</a>
+</ul>
+<li><a href="#toc_0.2">查找与替换</a>
+<ul>
+<li><a href="#toc_0.2.1">正则表达式</a>
+<li><a href="#toc_0.2.2">查找文本grep</a>
+<li><a href="#toc_0.2.3">输入流编辑sed</a>
+<li><a href="#toc_0.2.4">字段处理</a>
+</ul>
+<li><a href="#toc_0.3">文本处理</a>
+<ul>
+<li><a href="#toc_0.3.1">排序文本</a>
+<ul>
+<li><a href="#toc_0.3.1.1">行排序</a>
+<li><a href="#toc_0.3.1.2">字段排序</a>
+<li><a href="#toc_0.3.1.3">文本块排序</a>
+</ul>
+<li><a href="#toc_0.3.2">删除重复</a>
+<li><a href="#toc_0.3.3">统计行数、字数、字符数</a>
+<li><a href="#toc_0.3.4">打印</a>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">What's Shell</h2>
+<p>
+Shell 就是系统内核与用户交互时的中间介质，shell是系统的一个工具，用户直接面对的是shell而不是系统内核。用户把命令告诉shell，然后shell再把命令传递给系统的内核，内核再去支配计算机的硬件进行各种操作。
+</p>
+
+<p>
+我所采用的是ubuntu也是绝大多数系统默认的的shell，叫做bash。
+</p>
+
+<ul>
+<li>
+记录历史命令
+
+<li>
+指令和文件补全
+<br />  按<code>tab</code>键试试。
+
+<li>
+别名
+<br />  <code>alias</code>与<code>unalias</code>。
+
+<li>
+通配符
+<br />  在bash中，<code>*</code>匹配零个或多个字符，<code>?</code>匹配一个字符。
+
+<li>
+输入输出重定向
+<br />  输入重定向<code>&lt;</code>,输出重定向<code>&gt;</code>,错误输出重定向<code>2&gt;</code>,追加重定向<code>&gt;&gt;</code>
+
+<li>
+管道
+<br />  管道符<code>|</code>，把前面的输出丢给后面的输入。
+
+<li>
+作业控制
+<br />  当运行一个进程时，可以用<code>ctrl+z</code>使它暂停，<code>fg</code>命令恢复它，<code>bg</code>使它后台运行，<code>ctrl+c</code>终止进程。
+
+</ul>
+    
+<h3 id="toc_0.1.1">变量(Variable)</h3>
+<ul>
+<li>
+环境变量
+<br />  shell中预设的环境变量都是大写的，比如PATH,HOME,LOGNAME。使用<code>env</code>可以列出系统预设的全部环境变量。
+<br />  常见的环境变量：
+
+<ul>
+<li>
+PATH 决定shell到哪些目录下寻找命令和可执行文件
+
+<li>
+HOME 用户的主目录
+
+<li>
+HISESIZE 历史记录数
+
+<li>
+LOGNAME 当前用户的登录名
+
+<li>
+HOSTNAME 主机的名称
+
+<li>
+SHELL 用户shell类型
+
+<li>
+LANG 与语言相关的环境变量
+
+<li>
+MAIL 当前用户存放邮件的目录
+
+<li>
+PWD 当前目录
+
+</ul>
+</ul>
+
+<ul>
+<li>
+自定义变量
+<br />  自定义的变量只能在当前的shell中使用，要想让自定义的变量一直生效，就要将变量的定义写到配置文件中。
+
+<ol>
+<li>
+使系统内所有用户都能使用该自定义变量
+<br />    在<code>/etc/profile</code>文件最末尾加入，例如加入<code>export myname=waikeungshen</code>，然后运行<code>source /etc/profile</code>就可以立即生效了。
+
+<li>
+只让当前用户使用该自定义变量
+<br />    在当前用户的主目录下的<code>bashrc</code>文件末尾加入<code>export myname=waikeungshen</code>,然后运行<code>source .bashrc</code>就可以立即生效了。
+
+</ol>
+</ul>
+  
+<ul>
+<li>
+自定义变量的规则：
+
+<ol>
+<li>
+设定变量的格式：<code>a=b</code>,其中<code>a</code>为变量名，<code>b</code>为变量的内容，等号两边不能有空格。
+
+<li>
+变量名只能由英文，数字，下划线组成，而且不能以数字开头。
+
+<li>
+当变量内容中有特殊字符时（如空格），需要加上单引号，如<code>myname='waikeung shen'</code>。若变量本身就带有单引号，那就需要用双引号。
+
+<li>
+如果变量需要用到其他命令的运行结果，则需要用反引号(`)。反引号中的命令会先执行。
+
+<li>
+变量内容可以累加其他变量的内容,需要加双引号。如<code>myname="\(LOGNAME"shen</code>,若用的是单引号<code>myname='\)LOGNAME'shen</code>，变量的值会变为<code>$LOGNAMEshen</code>。
+
+<li>
+单引号与双引号的区别在于：用双引号时不会取消掉里面出现的特殊字符的本身作用 (这里的$),而使用单引号则里面的特殊字符全部失去它本身的作用。
+
+</ol>
+</ul>
+
+<p>
+在当前shell中运行bash指令后，会进入一个新的shell，这个shell就是原来shell的子shell，可以用<code>pstree</code>命令查看，<code>pstree</code>会打印出系统的进行树。
+</p>
+
+<p>
+若在父shell中定义的变量要在子shell中运行，就需要用<code>export</code>声明一下。
+</p>
+
+<p>
+要取消某个变量，只需要用<code>unset</code>命令就可以了。如<code>unset myname</code>。
+</p>
+
+<ul>
+<li>
+系统环境变量与用户环境变量的文件
+
+</ul>
+
+<ul>
+<li>
+/etc/profile :这个文件预设了几个重要的变量,例如PATH, USER, LOGNAME, MAIL, INPUTRC, HOSTNAME。
+
+<li>
+/etc/bashrc :这个文件主要预设umask以及PS1。
+
+<li>
+.bash_profile :定义了用户的个人化路径与环境变量的文件名称。每个用户都可使用该文件输入专用于自己使用的 shell信息,当用户登录时,该文件仅仅执行一次。HISTSIZE, umas等等。
+
+<li>
+.bashrc :该文件包含专用于你的shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取。例如你可以将用户自定义的alias或者自定义变量写到这个文件中。
+
+<li>
+.bash_history :记录命令历史用的。
+
+<li>
+.bash_logout :当退出shell时,会执行该文件。可以把一些清理的工作放到这个文件中。
+
+</ul>
+
+<h3 id="toc_0.1.2">Shell中的特殊符号</h3>
+
+<ol>
+<li>
+*: 代表零或多个字符
+
+<li>
+?: 代表任意一个字符
+
+<li>
+#: 注释
+
+<li>
+\: 转义字符
+
+<li>
+|: 管道
+
+<li>
+$: 变量声明
+
+</ol>
+
+<h3 id="toc_0.1.3">基本命令</h3>
+
+<ul>
+<li>
+grep: 过滤一个或多个字符
+
+<li>
+cut: 截取某一段
+
+<li>
+sort: 用于排序
+
+<li>
+wc :统计文档的行数、字符数、词数
+
+<li>
+uniq :去重复的行
+
+<li>
+tee: 类似重定向，但在写入文件的同时还显示在屏幕上
+
+<li>
+tr :替换字符,常用来处理文档中出现的特殊符号
+
+<li>
+split :切割文档
+
+<li>
+; :分号。平时我们都是在一行中敲一个命令,然后回车就运行了,那么想在一行中运行两个或两个以上的命令如何呢?则需要在命令之间加一个”;”了。
+
+<li>
+~ :用户的家目录,如果是root则是 /root ,普通用户则是 /home/username
+
+<li>
+&amp; :如果想把一条命令放到后台执行的话,则需要加上这个符号。通常用于命令运行时间非常长的情况。
+
+<li>
+&gt;, &gt;&gt;, 2&gt;, 2&gt;&gt; :前面讲过重定向符号&gt; 以及&gt;&gt; 分别表示取代和追加的意思,然后还有两个符号就是这里的2&gt; 和 2&gt;&gt; 分别表示错误重定向和错误追加重定向,当我们运行一个命令报错时,报错信息会输出到当前的屏幕,如果想 重定向到一个文本里,则要用2&gt;或者2&gt;&gt;。
+
+<li>
+[  ] :中括号,中间为字符组合,代表中间字符中的任意一个
+
+<li>
+&amp;&amp;和||
+
+</ul>
+
+<p>
+write date: 2013-12-18
+<hr />
+</p>
+<h2 id="toc_0.2">查找与替换</h2>
+
+<h3 id="toc_0.2.1">正则表达式</h3>
+
+<h3 id="toc_0.2.2">查找文本grep</h3>
+<p>
+在给出的文件列表或标准输入后，<code>grep</code>会对匹配一个或多个正则表达式的文本进行搜索，并只会输出匹配（或者不匹配）的行或文本。
+</p>
+
+<p>
+最简单的用法：
+</p>
+<blockquote>
+<code>grep string filename</code>
+</blockquote>
+<p>
+在filename的这个文件里，查找到含有<code>string</code>的行并打印在标准输出中（终端）。
+</p>
+ 
+<pre>
+SYNOPEIS
+    grep [ options... ] pattern-spec [ files... ]
+DESCRIPTION
+    显示匹配一个或多个模式的文本行，时常会作为管道（pipeline）的第一步，一遍对匹配的数据做进一步的处理。
+OPTIONS
+    -E
+        使用扩展正则表达式进行匹配。grep -E 可取代传统的 egrep。
+    -F
+        使用固定字符串进行匹配。grep -F 可取代传统的fgrep。
+    -i
+        模式匹配时忽略字母的大小写差异。
+    -l
+        列出匹配模式的文件名字，而不是打印匹配的行。
+    -v
+        显示不匹配模式的行
+    -e pat-list
+        通常，第一个非选项参数会指定要匹配的模式。也可以提供多个模式，
+        只要将它们放在引号里并以换行字符来分隔它们。
+        模式以以减号开头时，grep会混淆，而将它视为选项。-e可以指定其参数为模式，即使它以减号开头。
+    -f pat-file
+        从pat-file文件读取模式做匹配。
+</pre>
+<h3 id="toc_0.2.3">输入流编辑sed</h3>
+
+<h3 id="toc_0.2.4">字段处理</h3>
+<ul>
+<li>
+截取字符串 cut
+
+<li>
+连接字符串 join
+
+<li>
+重新编排字符串 awk
+
+</ul>
+
+
+<h2 id="toc_0.3">文本处理</h2>
+
+<h3 id="toc_0.3.1">排序文本</h3>
+
+<h4 id="toc_0.3.1.1">行排序</h4>
+
+<h4 id="toc_0.3.1.2">字段排序</h4>
+
+<h4 id="toc_0.3.1.3">文本块排序</h4>
+
+<h3 id="toc_0.3.2">删除重复</h3>
+
+<h3 id="toc_0.3.3">统计行数、字数、字符数</h3>
+
+<h3 id="toc_0.3.4">打印</h3>
+
+</div>
+<div id="footer">
+</div>
+</section>
+</body>
+</html>
