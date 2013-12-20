@@ -329,6 +329,55 @@ OPTIONS
         从pat-file文件读取模式做匹配。
 </pre>
 <h3 id="toc_0.2.3">输入流编辑sed</h3>
+<p>
+sed 全名 stream editor,流编辑器，用程序的方式来编辑文本，基本上sed就是用正则模式匹配的。
+</p>
+
+<pre>
+SYNOPEIS
+    sed [-n] 'editing command' [ file ... ]
+    sed [-n] -e 'editing command' ... [ file ... ]
+    sed [-n] -f script-file ... [ file ... ]
+DESCRIPTION
+    为了编辑它的输入流，将结果生成到标准输出。最常用的还是处理输入流的文本替换，通常是作为管道的一部分。
+OPTIONS
+    -e 'editing command'
+        将 editing command 使用在输入数据上。当有多个命令需要应用时，就必须用 -e 了。
+    -f script-file
+        从 script-file 中读取编辑命令。当有多个命令需要执行时，此选项相当有用。
+    -n
+    
+    -i
+        默认sed并不会直接修改文件的内容，而只是把处理后的内容输出，该参数可以直接修改文件内容。
+        
+</pre>
+
+<p>
+sed的命令
+</p>
+
+<ul>
+<li>
+N命令
+<br />  把下一行的内容纳入当成缓冲去做匹配。
+
+<li>
+a命令和i命令
+<br />  a就是append，i就是insert，用来添加行。
+
+<li>
+c命令
+<br />  替换匹配行
+
+<li>
+d命令
+<br />  删除匹配行
+
+<li>
+p命令
+<br />  打印匹配行
+
+</ul>
 
 <h3 id="toc_0.2.4">字段处理</h3>
 <ul>
