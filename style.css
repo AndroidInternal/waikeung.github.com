@@ -50,7 +50,12 @@ h1 {
 	}
 h2 {
 	font-weight: normal;
+	font-size:1.5em;
 	}
+#main h2 {
+    border-left:5px #008b8b solid;
+    border-bottom:1px solid blue;
+}
 h3 {
 	font-weight: normal;
 	font-style: italic;
@@ -81,6 +86,7 @@ code {
 	}
 pre {
 	border: solid 1px blue;
+    padding:10px;
 }
 a {
 	color: #2484c1;
