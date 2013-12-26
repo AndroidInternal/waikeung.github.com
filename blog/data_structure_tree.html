@@ -3,7 +3,7 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
 <link rel="Stylesheet" type="text/css" href="../head.css">
-<title>data_structure_tree</title>
+<title>Tree</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -22,7 +22,64 @@
 
 <div id="main">
 
-<h2 id="toc_0.1">Tree</h2>
+<h2 id="toc_0.1">树(Tree)</h2>
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">树(Tree)</a>
+<ul>
+<li><a href="#toc_0.1.1">二叉树(Binary Tree)</a>
+<ul>
+<li><a href="#toc_0.1.1.1">二叉树的性质</a>
+<li><a href="#toc_0.1.1.2">二叉树的存储结构</a>
+<li><a href="#toc_0.1.1.3">二叉树的遍历</a>
+</ul>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h3 id="toc_0.1.1">二叉树(Binary Tree)</h3>
+<p>
+二叉树的特点是每个结点至多只有两棵子树（即二叉树中不存在度大于2的结点），并且，二叉树的子树有左右之分，其次序不能任意颠倒。
+</p>
+
+<h4 id="toc_0.1.1.1">二叉树的性质</h4>
+<ol>
+<li>
+在二叉树中第i层上至多有 2<sup><small>i-1</small></sup> 个结点（ i&gt;=1 ）。
+
+<li>
+深度为k的二叉树至多有 2<sup><small>k-1</small></sup> 个结点，（ k&gt;=1）。
+
+<li>
+对任意一棵二叉树T，如果其终端结点数为 n<sub><small>0</small></sub> ,度为2的结点数为 n<sub><small>2</small></sub> ，则 n<sub><small>0</small></sub> = n<sub><small>2</small></sub> + 1。
+
+<li>
+具有n个结点的完全二叉树的深度为|_ log<sub><small>2n</small></sub> _|+1。
+
+<li>
+对于一棵具有n个结点的完全二叉树的结点按层次编号，则对任一结点i(1&lt;= i &lt;= n),有
+
+<ol>
+<li>
+如果i=1，则结点i是二叉树的根，无双亲; 如果i&gt;1，则其双亲<code>PARENT(i)</code>是结点|_ i/2 _|。
+
+<li>
+如果2i&gt;n，则结点i无左孩子;否则其左孩子<code>LCHILD(i)</code>是结点2i。
+
+<li>
+如果2i+1&gt;n,则结点i无右孩子，否则其右孩子<code>RCHILD(i)</code>是结点2i+1。
+
+</ol>
+</ol>
+
+<p>
+write date: 2013-12-26
+</p>
+<h4 id="toc_0.1.1.2">二叉树的存储结构</h4>
+
+
+<h4 id="toc_0.1.1.3">二叉树的遍历</h4>
 
 </div>
 <div id="footer">
