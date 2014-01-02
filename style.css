@@ -68,7 +68,7 @@ p {
 	hyphens:auto;
 	}
 ul {
-	list-style: square;
+	//list-style: square;
 	padding-left:1.2em;
 	}
 ol {
