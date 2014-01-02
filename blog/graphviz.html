@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="Stylesheet" type="text/css" href="../head.css">
+<title>graphviz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<section id="container">
+    <section id="masthead">
+    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
+    <h2>By <span class="author">waikeung</a></h2>
+    <nav>
+        <a class="menu" href="../index.html">Home</a>
+        <a class="menu" href="../blog/index.html">Archive</a>
+        <a class="menu" href="../code.html">Code</a>
+        <a class="menu" href="../note.html">Note</a>
+        <a class="menu" href="../about.html">About</a>
+    </nav>
+    </section>
+
+<div id="main">
+
+<h2 id="toc_0.1">Graphviz工具使用</h2>
+<p>
+Graphviz是一个DOT语言的解析工具，同时将DOT最后输出成指定格式的文件。
+</p>
+
+<p>
+学习使用<code>Graphviz</code>之前，首先要了解下<code>DOT</code>语言。
+<hr />
+</p>
+<h3 id="toc_0.1.1">基本无向图和有向图</h3>
+<ul>
+<li>
+基本无向图
+<pre>
+graph example1 {
+    A -- B;
+    A -- C;
+}
+</pre>
+
+</ul>
+<p>
+执行命令：<code>dot example1.dot -Tpng -o example1.png</code>
+</p>
+
+<p>
+<img src="../images/example1.png" />
+</p>
+
+<ul>
+<li>
+基本有向图
+<pre>
+digraph example2 {
+    A -&gt; B;
+    B -&gt; C;
+    B -&gt; D;
+    D -&gt; E;
+}
+</pre>
+
+</ul>
+<p>
+执行命令：<code>dot example2.dot -Tpng -o example2.png</code>
+</p>
+
+<p>
+<img src="../images/example2.png" />
+</p>
+
+<p>
+分析：无向图第一行用<code>graph</code>，结点的连接用<code>--</code>;而有向图第一行用<code>digraph</code>，结点连接用<code>-&gt;</code>。
+</p>
+
+<h3 id="toc_0.1.2">进阶</h3>
+<pre>
+digraph example3 {
+size ="4,4";
+Server1 -&gt; Server2
+Server2 -&gt; Server3
+Server3 -&gt; Server1
+
+Server1 [shape=box, label="Server1\nWeb Server", fillcolor="#ABACBA", style=filled]
+Server2 [shape=triangle, label="Server2\nApp Server", fillcolor="#DDBCBC", style=filled]
+Server3 [shape=circle, label="Server3\nDatabase Server", fillcolor="#FFAA22",style=filled]
+}
+</pre>
+<p>
+<img src="../images/example3.png" />
+</p>
+
+<pre>
+digraph G {
+ 
+/*图片缩放比例，如果图片生成的图片较大可以设置范围*/
+size ="4,4";
+/*全局字体*/
+fontname = "WenQuanYi Zen Hei";
+fontsize=14;/*全局字体大小*/
+node[shape=box];/*全局节点现状(长方形)*/
+ 
+/* main节点现状为椭圆，这里相当于重写了全局现状定义 */
+main [shape=ellipse]; 
+ 
+/*这里的weight是定义边的属性，类似css中的weight*/
+main -&gt; parse [weight=8]; 
+ 
+parse -&gt; execute;
+main -&gt; init [style=dotted]; /*定义边的样式为虚线*/
+main -&gt; cleanup;
+ 
+/*
+这里定义了一个组合，可以分解为：
+execute -&gt; make_string;
+execute -&gt; printf
+*/
+execute -&gt; { make_string; printf};
+ 
+init -&gt; make_string;
+edge [color=red]; /*定义边的颜色，只影响后面所有边，前面边不受影响*/
+main -&gt; printf [style=bold,label="100 times"];
+make_string [label="make a\nstring"];/*设置节点标签*/
+node [shape=circle,style=filled,color=".7 .3 1.0"];
+execute -&gt; compare;
+}
+</pre>
+<p>
+<img src="../images/G.png" />
+</p>
+
+<h3 id="toc_0.1.3">参考</h3>
+<ol>
+<li>
+使用Graphviz生成自动化系统图 <a href="http://www.ibm.com/developerworks/cn/aix/library/au-aix-graphviz/">http://www.ibm.com/developerworks/cn/aix/library/au-aix-graphviz/</a>
+
+<li>
+Graphviz工具使用(1) <a href="http://www.xiebiao.com/blog/?p=1006">http://www.xiebiao.com/blog/?p=1006</a>
+
+</ol>
+
+</div>
+<div id="footer">
+2013 Creat by vimwiki
+</div>
+</section>
+</body>
+</html>
