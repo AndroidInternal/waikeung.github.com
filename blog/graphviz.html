@@ -132,6 +132,39 @@ execute -&gt; compare;
 <img src="../images/G.png" />
 </p>
 
+<p>
+数据结构中经常用到的
+</p>
+<pre>
+digraph example4 {
+	node [shape = record,height=.1];
+	node0[label = "&lt;f0&gt; |&lt;f1&gt; G|&lt;f2&gt; "];
+	node1[label = "&lt;f0&gt; |&lt;f1&gt; E|&lt;f2&gt; "];
+	node2[label = "&lt;f0&gt; |&lt;f1&gt; B|&lt;f2&gt; "];
+	node3[label = "&lt;f0&gt; |&lt;f1&gt; F|&lt;f2&gt; "];
+	node4[label = "&lt;f0&gt; |&lt;f1&gt; R|&lt;f2&gt; "];
+	node5[label = "&lt;f0&gt; |&lt;f1&gt; H|&lt;f2&gt; "];
+	node6[label = "&lt;f0&gt; |&lt;f1&gt; Y|&lt;f2&gt; "];
+	node7[label = "&lt;f0&gt; |&lt;f1&gt; A|&lt;f2&gt; "];
+	node8[label = "&lt;f0&gt; |&lt;f1&gt; C|&lt;f2&gt; "];
+	"node0":f2 -&gt; "node4":f1;
+	"node0":f0 -&gt; "node1":f1;
+	"node1":f0 -&gt; "node2":f1;
+	"node1":f2 -&gt; "node3":f1;
+	"node2":f2 -&gt; "node8":f1;
+	"node2":f0 -&gt; "node7":f1;
+	"node4":f2 -&gt; "node6":f1;
+	"node4":f0 -&gt; "node5":f1;
+}
+</pre>
+<p>
+<img src="../images/example4.png" />
+</p>
+
+<p>
+write by 2014-01-02
+</p>
+
 <h3 id="toc_0.1.3">参考</h3>
 <ol>
 <li>
