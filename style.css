@@ -82,7 +82,9 @@ blockquote {
 code {
 	font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
 	font-size: .9em;
-	background: white;
+	background: #f7f7f9;
+    border:1px solid #e1e1e8;
+    padding:3px 4px;
 	}
 pre {
 	border: solid 1px blue;
