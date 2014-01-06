@@ -5,6 +5,17 @@
 <link rel="Stylesheet" type="text/css" href="../head.css">
 <title>Java之线程池</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
 <section id="container">
@@ -33,7 +44,7 @@ java1.5之后，java提供了自己的线程池ThreadPoolExecutor类。
 <p>
 线程池类为<code>java.util.concurrent.ThreadPoolExecutor</code>，常用的构造方法为：
 </p>
-<pre>
+<pre class="brush:java">
 public ThreadPoolExecutor(
             int corePoolsize,       //保留的线程池大小
             int maximumPoolsize,    //线程池的最大大小

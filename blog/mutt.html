@@ -5,6 +5,17 @@
 <link rel="Stylesheet" type="text/css" href="../head.css">
 <title>Mutt电子邮件的使用</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
 <section id="container">
@@ -80,13 +91,13 @@ msmtp 用来发送邮件
 <p>
 安装mutt,msmtp,getmail,procmail:
 </p>
-<pre>
+<pre class="brush:bash">
 $ sudo apt-get install mutt msmtp getmail4 procmail
 </pre>
 <p>
 如果需要用vim编写信件，而又没安装的话：
 </p>
-<pre>
+<pre class="brush:bash">
 $ sudo apt-get install vim
 </pre>
 
@@ -95,13 +106,13 @@ $ sudo apt-get install vim
 <p>
 在家目录下建立名为 .msmtprc 的配置文件:
 </p>
-<pre>
+<pre class="brush:bash">
 $ vim ~/.msmtprc
 </pre>
 <p>
 在文件中加入一下内容：
 </p>
-<pre>
+<pre class="brush:bash">
 #Gmail
 account gmail                   # 账户名称是gmail，这个可以随意写
 host smtp.gmail.com             # 发信服务器是smtp.gmail.com，这个是邮件服务器规定的
@@ -124,7 +135,7 @@ account default: gmail
 <p>
 保存退出后，由于里面的密码是明文，所以要设置权限，此文件只能本人访问。
 </p>
-<pre>
+<pre class="brush:bash">
 $ chmod 600 ~/.msmtprc
 </pre>
 
@@ -133,19 +144,19 @@ $ chmod 600 ~/.msmtprc
 <p>
 首先在家目录下建立 .getmail 文件夹：
 </p>
-<pre>
+<pre class="brush:bash">
 $ mkdir ~/.getmail
 </pre>
 <p>
 然后在.getmail目录内为每个邮箱各建立一个配置文件，比如为我的gmail建立getmailrc.gmail：
 </p>
-<pre>
+<pre class="brush:bash">
 $ vim ~/.getmail/getmailrc.gmail
 </pre>
 <p>
 并写入如下内容：
 </p>
-<pre>
+<pre class="brush:bash">
 [options]
 verbose  = 0                        # 不产生过多信息
 read_all = false                    # 只收取新信件
@@ -170,26 +181,26 @@ unixfrom = true                     # 这一行写不写无所谓
 <p>
 创建一个脚本文件来调用这些邮箱的配置文件。
 </p>
-<pre>
+<pre class="brush:bash">
 $ vim ~/.getmail/getmail.sh
 </pre>
 <p>
 在里面写道：
 </p>
-<pre>
+<pre class="brush:bash">
 #!/bin/bash
 getmail -n -r ~/.getmail/getmailrc.gmail -r ~/.getmail/getmailrc.hotmail
 </pre>
 <p>
 执行该脚本，就相当与对我的gmail和hotmail邮箱执行了getmail的命令。但不能每次都是我们手动去执行，将此事交给系统守护进程：
 </p>
-<pre>
+<pre class="brush:bash">
 $ crontab -e
 </pre>
 <p>
 第一次使用此命令可能会出现选择编辑器的提示，可以选择vi，然后就会启动vi，可能又会就VIM的配置文件报一些错误，回车就打开了相应文件。在其中加入：
 </p>
-<pre>
+<pre class="brush:bash">
 0,10,20,30,40,50 * * * * ~/.getmail/getmail.sh &gt; /dev/null 2&gt;&amp;1
 </pre>
 <p>
@@ -199,7 +210,7 @@ $ crontab -e
 <p>
 同样由于文件中含有明文密码，设置权限：
 </p>
-<pre>
+<pre class="brush:bash">
 $ chmod -R 700 ~/.getmail
 </pre>
 
@@ -208,14 +219,14 @@ $ chmod -R 700 ~/.getmail
 <p>
 getmail收取信件，而信件的存放地点，我们还未指定。在家目录下建立mail目录，其内用文本文件inbox、sent作为收件箱和发件箱：
 </p>
-<pre>
+<pre class="brush:bash">
 $ mkdir ~/mail
 $ touch ~/mail/inbox ~/mail/sent ~/mail/.procmaillog
 </pre>
 <p>
 一起创建的还有procmail的错误记录文件.procmaillog。mail目录内存放了信件等重要内容，杜绝他人访问：
 </p>
-<pre>
+<pre class="brush:bash">
 $ chmod -R 700 ~/mail
 </pre>
   
@@ -224,13 +235,13 @@ $ chmod -R 700 ~/mail
 <p>
 getmail只是将收到的信件交由procmail处理，procmail如何让它们到达我们已经创建好的收件箱，需要在.procmailrc中说明：
 </p>
-<pre>
+<pre class="brush:bash">
 $ vim ~/.procmailrc
 </pre>
 <p>
 加入以下内容：
 </p>
-<pre>
+<pre class="brush:bash">
 PATH=/bin:/sbin:/usr/bin:/usr/sbin
 SHELL=/bin/bash
 MAILDIR=$HOME/.Mail
@@ -257,13 +268,13 @@ procmail很强大，可以设置各种分拣、投递的规则，当然过滤垃
 <p>
 正因为这个原因，mutt的配置文件也更为复杂，先在家目录下建立.muttrc文件：
 </p>
-<pre>
+<pre class="brush:bash">
 $ vim .muttrc
 </pre>
 <p>
 首先需要加入一些基本的设置语句：
 </p>
-<pre>
+<pre class="brush:bash">
 set folder    = "~/mail"          # 所有信件所在目录
 set mbox      = "~/mail/inbox"    # 收件箱文件
 set record    = "~/mail/sent"     # 发件箱文件
@@ -279,7 +290,7 @@ set sendmail  = "/usr/bin/msmtp"  # 发信程序msmtp的位置，如果不确定
 <p>
 此时mutt已经能够工作，但收到的许多中文信件会显示乱码。所以必须在.muttrc中再加入以下内容：
 </p>
-<pre>
+<pre class="brush:bash">
 set charset      = "utf-8"           # 终端支持的编码，Linux下一般是utf-8
  
 set send_charset = "utf-8"           # 发信编码
@@ -296,7 +307,7 @@ set rfc2047_parameters = yes         # 用gb2312编码显示中文附件名
 <p>
 参考我的.muttrc配置文件
 </p>
-<pre>
+<pre class="brush:bash">
 #编码
 set charset="utf-8"
 set send_charset = "utf-8"           # 发信编码
