@@ -7,7 +7,7 @@ html, body {
         background:#fefefe;
 	}
 body {
-	font: 1.0em "Vollkorn", Palatino, Times;
+	font: 1.0em Inconsolata,"Vollkorn", Palatino, Times;
 	color: #333;
 	line-height: 1.4;
 	text-align: justify;

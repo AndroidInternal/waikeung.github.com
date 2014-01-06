@@ -5,6 +5,17 @@
 <link rel="Stylesheet" type="text/css" href="../head.css">
 <title>graphviz</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
 <section id="container">
@@ -35,7 +46,7 @@ Graphviz是一个DOT语言的解析工具，同时将DOT最后输出成指定格
 <ul>
 <li>
 基本无向图
-<pre>
+<pre class="brush:bash">
 graph example1 {
     A -- B;
     A -- C;
@@ -54,7 +65,7 @@ graph example1 {
 <ul>
 <li>
 基本有向图
-<pre>
+<pre class="brush:bash">
 digraph example2 {
     A -&gt; B;
     B -&gt; C;
@@ -77,7 +88,7 @@ digraph example2 {
 </p>
 
 <h3 id="toc_0.1.2">1.2. 进阶</h3>
-<pre>
+<pre class="brush:bash">
 digraph example3 {
 size ="4,4";
 Server1 -&gt; Server2
@@ -93,7 +104,7 @@ Server3 [shape=circle, label="Server3\nDatabase Server", fillcolor="#FFAA22",sty
 <img src="../images/example3.png" />
 </p>
 
-<pre>
+<pre class="brush:bash">
 digraph G {
  
 /*图片缩放比例，如果图片生成的图片较大可以设置范围*/
@@ -135,7 +146,7 @@ execute -&gt; compare;
 <p>
 数据结构中经常用到的
 </p>
-<pre>
+<pre class="brush:bash">
 digraph example4 {
 	node [shape = record,height=.1];
 	node0[label = "&lt;f0&gt; |&lt;f1&gt; G|&lt;f2&gt; "];
