@@ -132,6 +132,13 @@ p#heart{
 	}
 
 /*todo-list*/
+li.done0, li.done1, li.done2, li.done3, li.done4 {
+    border:2px solid #5f9ea0;
+    border-radius:7px;
+    margin:6px 1px;
+    list-style-type:none;
+}
+
 li.done0 {
 
 }
