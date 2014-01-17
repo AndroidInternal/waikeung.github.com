@@ -411,9 +411,61 @@ bc
 <h3 id="toc_1.2.2">2.2. 结构化命令</h3>
 
 <h4 id="toc_1.2.2.1">2.2.1. if-then</h4>
+<pre class="brush:bash">
+if command
+then
+    commands
+fi
+</pre>
+<p>
+bash shell 的if语句会运行if后面的command命令，如果该命令的退出码为<code>0</code>(该命令运行成功)，位于<code>then</code>部分的命令就会被执行。
+</p>
 
+<p>
+if-then-else语句
+</p>
+<pre class="brush:bash">
+if command
+then
+    commands
+else
+    commands
+fi
+</pre>
+<p>
+嵌套if
+</p>
+<pre class="brush:bash">
+if command1
+then
+    command set 1
+elif command2
+then
+    command set 2
+elif command3
+then
+    command set 3
+elif command4
+then
+    command set 4
+fi
+</pre>
 <h4 id="toc_1.2.2.2">2.2.2. test</h4>
-
+<p>
+如果<code>test</code>命令中的列出来的条件成立，<code>test</code>就会返回退出状态码0
+</p>
+<pre class="brush:bash">
+if test condition
+then
+    commands
+fi
+</pre>
+<pre class="brush:bash">
+if [ condition ]
+then
+    commands
+fi
+</pre>
 <h4 id="toc_1.2.2.3">2.2.3. for</h4>
 
 <h4 id="toc_1.2.2.4">2.2.4. while</h4>
