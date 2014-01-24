@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="Stylesheet" type="text/css" href="../head.css">
+<title>algorithm_sort</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+<body>
+<section id="container">
+    <section id="masthead">
+    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
+    <h2>By <span class="author">waikeung</a></h2>
+    <nav>
+        <a class="menu" href="../index.html">Home</a>
+        <a class="menu" href="../blog/index.html">Archive</a>
+        <a class="menu" href="../code.html">Code</a>
+        <a class="menu" href="../note.html">Note</a>
+        <a class="menu" href="../about.html">About</a>
+    </nav>
+    </section>
+
+<div id="main">
+
+<h1 id="toc_1"> 常用排序算法介绍</h1>
+<p>
+排序的目标是将一组数据重新排列，排列后的数据符合从小到大(或者从大到小)的次序。
+</p>
+
+<p>
+这里列出一些常见的排序方法，并用C语言实现它们。
+</p>
+
+<p>
+一组数据存储为一个数组a中，数组有n个元素。序列最终排列成从小到大的顺序。
+</p>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> 常用排序算法介绍</a>
+<ul>
+<li><a href="#toc_1.1">1. 冒泡排序 (Bubble Sort)</a>
+<li><a href="#toc_1.2">2. 选择排序 (Selection Sort)</a>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_1.1">1. 冒泡排序 (Bubble Sort)</h2>
+<p>
+对于一个已经排列好了的序列，它的任意两个相邻的元素，都应该满足 <code>a[i-1] &lt;= a[i]</code>的关系。冒泡排序就是不断的扫描相邻的元素，如果不符合，就将两个元素交换，符合就不交换。经过一次遍历，最大的元素应该处在序列的末尾。
+</p>
+<pre class="brush:cpp">
+void BubbleSort(int a[], int n)
+{
+    int i, j;
+    for (i = 0; i &lt; n - 1; i++)
+    {
+        for (j = 0; j &lt; n - 1 - i; j++)
+            if (a[j - 1] &gt; a[j])
+                swap(a[j - 1], a[j]);
+    }
+}
+</pre>
+
+<p>
+如果某次遍历过程中，未发生交换，这就说明序列都符合要求了，序列已经排序好了，可以中止排序了。修改后的算法如下：
+</p>
+<pre class="brush:cpp">
+void BubbleSort2(int a[], int n)
+{
+    int i, j;
+    int sign;
+    for (i = 0; i &lt; n - 1; i++)
+    {
+        sign = 0;
+        for (j = 0; j &lt; n - 1 - i; j++)
+            if (a[j - 1] &gt; a[j])
+            {
+                sign = 1;
+                swap(a[j - 1], a[j]);
+            }
+        if (sign == 0)
+            break;
+    }
+}
+</pre>
+
+<h2 id="toc_1.2">2. 选择排序 (Selection Sort)</h2>
+<p>
+排序的结果，最小的元素在最左边，第二小的元素在<code>i=1</code>的位置...... 最大的元素在排在最后。
+</p>
+
+<p>
+选择排序是先找到数组中最小的元素，将它交换到<code>i=0</code>的位置，然后寻找第二小的元素，将它交换到<code>i=1</code>的位置......直到找到第二大的元素，将它交换到<code>n-2</code>的位置。这时，序列以排好。
+</p>
+<pre class="brush:cpp">
+void selectSort (int a[], int n)
+{
+    int i, j;
+    int min_index;
+    for (i = 0; i &lt; n - 1; i++)
+    {
+        min_index = i;
+        for (j = i + 1; j &lt; n; j++)
+        {
+            if (a[j] &lt; a[min_index])
+                min_index = j;
+        }
+        swap(a[i], a[min_index]);
+    }
+}
+</pre>
+
+</div>
+<div id="footer">
+2013 Creat by vimwiki
+</div>
+</section>
+</body>
+</html>
