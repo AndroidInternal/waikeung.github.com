@@ -52,6 +52,8 @@
 <ul>
 <li><a href="#toc_1.1">1. 冒泡排序 (Bubble Sort)</a>
 <li><a href="#toc_1.2">2. 选择排序 (Selection Sort)</a>
+<li><a href="#toc_1.3">3. 插入排序 ( Insertion Sort )</a>
+<li><a href="#toc_1.4">4. 希尔排序 (Shell Sort)</a>
 </ul>
 </ul>
 </div>
@@ -60,6 +62,19 @@
 <p>
 对于一个已经排列好了的序列，它的任意两个相邻的元素，都应该满足 <code>a[i-1] &lt;= a[i]</code>的关系。冒泡排序就是不断的扫描相邻的元素，如果不符合，就将两个元素交换，符合就不交换。经过一次遍历，最大的元素应该处在序列的末尾。
 </p>
+
+<ul>
+<li>
+最差时间复杂度 O(n<sup><small>2</small></sup>)
+
+<li>
+最优时间复杂度 O(n)
+
+<li>
+平均时间复杂度 O(n<sup><small>2</small></sup>)
+
+</ul>
+
 <pre class="brush:cpp">
 void BubbleSort(int a[], int n)
 {
@@ -68,7 +83,7 @@ void BubbleSort(int a[], int n)
     {
         for (j = 0; j &lt; n - 1 - i; j++)
             if (a[j - 1] &gt; a[j])
-                swap(a[j - 1], a[j]);
+                swap(a + j - 1], a + j);
     }
 }
 </pre>
@@ -77,7 +92,7 @@ void BubbleSort(int a[], int n)
 如果某次遍历过程中，未发生交换，这就说明序列都符合要求了，序列已经排序好了，可以中止排序了。修改后的算法如下：
 </p>
 <pre class="brush:cpp">
-void BubbleSort2(int a[], int n)
+void BubbleSort(int a[], int n)
 {
     int i, j;
     int sign;
@@ -88,7 +103,7 @@ void BubbleSort2(int a[], int n)
             if (a[j - 1] &gt; a[j])
             {
                 sign = 1;
-                swap(a[j - 1], a[j]);
+                swap(a + j - 1, a + j);
             }
         if (sign == 0)
             break;
@@ -104,6 +119,19 @@ void BubbleSort2(int a[], int n)
 <p>
 选择排序是先找到数组中最小的元素，将它交换到<code>i=0</code>的位置，然后寻找第二小的元素，将它交换到<code>i=1</code>的位置......直到找到第二大的元素，将它交换到<code>n-2</code>的位置。这时，序列以排好。
 </p>
+
+<ul>
+<li>
+最差时间复杂度 O(n<sup><small>2</small></sup>)
+
+<li>
+最优时间复杂度 O(n<sup><small>2</small></sup>)
+
+<li>
+平均时间复杂度 O(n<sup><small>2</small></sup>)
+
+</ul>
+
 <pre class="brush:cpp">
 void selectSort (int a[], int n)
 {
@@ -117,10 +145,58 @@ void selectSort (int a[], int n)
             if (a[j] &lt; a[min_index])
                 min_index = j;
         }
-        swap(a[i], a[min_index]);
+        swap(a + i, a + min_index);
     }
 }
 </pre>
+
+<h2 id="toc_1.3">3. 插入排序 ( Insertion Sort )</h2>
+<p>
+基本思想：每次将一个待排序的记录，按其关键字大小插入到前面已经排好序的子序列中的适当位置，直到全部记录插入为止。
+</p>
+
+<ul>
+<li>
+最差时间复杂度 O(n<sup><small>2</small></sup>)
+
+<li>
+最优时间复杂度 O(n)
+
+<li>
+平均时间复杂度 O(n<sup><small>2</small></sup>)
+
+</ul>
+
+<pre class="brush:cpp">
+void InsertionSort (int a[], int n)
+{
+    int i, j;
+    int temp;
+    for (i = 1; i &lt; n; i++)
+    {
+        temp = a[i];
+        j = i - 1;
+        while ((j &gt;= 0) &amp;&amp; (a[j] &gt; temp))
+        {
+            a[j+1] = a[j];
+            j--;
+        }
+        a[j+1] = temp;
+    }
+}
+</pre>
+
+<pre class="brush:cpp">
+void InsertionSort (int a[], int n)
+{
+    int i, j;
+    for (i = 1; i &lt; n; i++)
+        for (j = i - 1; j &gt;= 0 &amp;&amp; a[j+1] &lt; a[j]; j--)
+            swap (a + j + 1, a + j);
+}
+</pre>
+
+<h2 id="toc_1.4">4. 希尔排序 (Shell Sort)</h2>
 
 </div>
 <div id="footer">
