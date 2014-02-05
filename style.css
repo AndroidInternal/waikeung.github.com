@@ -67,7 +67,7 @@ h2 {
 
 h3 {
 	font-weight: normal;
-	font-style: italic;
+	//font-style: italic;
 	margin-top:3em;
 	}
 p {
@@ -193,6 +193,6 @@ article {
 } /* @iPhone */
 
 table,th,td{
-	font-size:14px;
-	border: 1px solid #98bf21;
+	//font-size:14px;
+	//border: 1px solid #98bf21;
 }

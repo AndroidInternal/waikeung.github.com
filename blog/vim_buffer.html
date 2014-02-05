@@ -3,7 +3,7 @@
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
 <link rel="Stylesheet" type="text/css" href="../head.css">
-<title>Blog</title>
+<title>vim的buffer</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="scripts/shCore.js"></script>
 <script type="text/javascript" src="scripts/shBrushBash.js"></script>
@@ -34,73 +34,61 @@
 <div id="main">
 
 
-<h1 id="toc_1"> Blogs Classification</h1>
+<h1 id="toc_1"> VIM的Buffer</h1>
 
-<h2 id="toc_1.1">1. Linux</h2>
 <p>
-这里是一些我关于linux的记录，算是笔记吧。
+buffer是内存中的一块缓冲的区域，用于临时存放vim中打开过的文件。用vim打开后的文件，文件就自动加入到buffer的队伍中，同时修改后还未保存时，改动就存在于buffer中。
 </p>
 
+<ol>
+<li>
+查看当前buffer中的文件列表
+<br />  <code>:buffers</code> 或 <code>:ls</code> 或 <code>:files</code>
+
+<li>
+缓冲文件的几种状态
+<br />  \- (非活动的缓冲区)
+<br />  a  (当前被激活的缓冲区)
+<br />  h  (隐藏的缓冲区)
+<br />  %  (当前的缓冲区)
+<br />  \# (交换缓冲区)
+<br />  =  (只读缓冲区)
+<br />  +  (已经更改的缓冲区)
+
 <ul>
 <li>
-<a href="git_github.html">Git/GitHub使用</a>
+激活的缓冲区 出现在窗口中，内容被载入
 
 <li>
-<a href="shell.html">Shell学习之路</a>
+隐藏的缓冲区 不显示在窗口中，但内容被载入
 
 <li>
-<a href="crontab.html">Crontab</a>
-
-<li>
-<a href="mutt.html">Mutt电子邮件使用</a>
-
-<li>
-<a href="ttp.html">ttp</a>
-
-<li>
-<a href="linux_commands.html">linux命令记录</a>
+非活动的缓冲区 不出现在窗口中，内容也未被载入
 
 </ul>
+<li>
+命令
+<br />  一些常用命令
+<pre class="brush:bash">
+  :buffers  列出缓冲区的状态
+  :buffer   编辑指定缓冲区
+  :ball     编辑所有缓冲区
+  :bnext    到下一个缓冲区
+  :bprevious到前一个缓冲区
+  :bfirst   到第一个缓冲区
+  :badd     添加缓冲区
+  :bdelete  删除缓冲区
+  :bunload  卸载缓冲区
+</pre>
 
-<h2 id="toc_1.2">2. Algorithms And Data Structure</h2>
+</ol>
 <p>
-算是自己学习算法和数据结构的一些笔记吧。
+Time: 2014-02-05 08:27 AM
 </p>
-<ul>
-<li>
-<a href="algorithm_sort.html">常用排序算法介绍</a>
-
-<li>
-<a href="data_structure_binary_tree.html">二叉树(Binary Tree)</a>
-
-</ul>
-
-<h2 id="toc_1.3">3. Python</h2>
-<ul>
-<li>
-<a href="python_cnblog.html">博客园的MetaWeblog接口</a>
-
-</ul>
-
-<h2 id="toc_1.4">4. VIM</h2>
-<ul>
-<li>
-<a href="vim_buffer.html">vim的buffer/缓冲区</a>
-
-</ul>
-<h2 id="toc_1.5">5. Other</h2>
-<ul>
-<li>
-<a href="java_thread_pool.html">Java之线程池</a>
-
-<li>
-<a href="graphviz.html">Graphviz工具使用</a>
-
-</ul>
 
 </div>
 <div id="footer">
-2013-2014 Creat by vimwiki
+2013 Creat by vimwiki
 </div>
 </section>
 </body>

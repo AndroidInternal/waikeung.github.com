@@ -1,0 +1,447 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css">
+<link rel="Stylesheet" type="text/css" href="../head.css">
+<title>Linux Commands</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="scripts/shBrushJava.js"></script>
+<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
+<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+</head>
+<body>
+<section id="container">
+    <section id="masthead">
+    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
+    <h2>By <span class="author">waikeung</a></h2>
+    <nav>
+        <a class="menu" href="../index.html">Home</a>
+        <a class="menu" href="../blog/index.html">Archive</a>
+        <a class="menu" href="../code.html">Code</a>
+        <a class="menu" href="../note.html">Note</a>
+        <a class="menu" href="../about.html">About</a>
+    </nav>
+    </section>
+
+<div id="main">
+
+<h1 id="toc_1"> Linux Commands</h1>
+<p>
+记录下自己一些用到的linux命令。
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> Linux Commands</a>
+<ul>
+<li><a href="#toc_1.1">1. 文件目录操作</a>
+<ul>
+<li><a href="#toc_1.1.1">1.1. ls 命令</a>
+<li><a href="#toc_1.1.2">1.2. cd 命令</a>
+<li><a href="#toc_1.1.3">1.3. pwd 命令</a>
+<li><a href="#toc_1.1.4">1.4. mkdir 命令</a>
+<li><a href="#toc_1.1.5">1.5. rmdir 命令</a>
+<li><a href="#toc_1.1.6">1.6. rm 命令</a>
+<li><a href="#toc_1.1.7">1.7. cp 命令</a>
+<li><a href="#toc_1.1.8">1.8. mv 命令</a>
+<li><a href="#toc_1.1.9">1.9. touch 命令</a>
+<li><a href="#toc_1.1.10">1.10. cat 命令</a>
+<li><a href="#toc_1.1.11">1.11. more 命令</a>
+<li><a href="#toc_1.1.12">1.12. less 命令</a>
+<li><a href="#toc_1.1.13">1.13. head 命令</a>
+<li><a href="#toc_1.1.14">1.14. tail 命令</a>
+</ul>
+<li><a href="#toc_1.2">2. 文件查找</a>
+<ul>
+<li><a href="#toc_1.2.1">2.1. which 命令</a>
+<li><a href="#toc_1.2.2">2.2. whereis 命令</a>
+<li><a href="#toc_1.2.3">2.3. locate 命令</a>
+</ul>
+<li><a href="#toc_1.3">3. 文件和目录属性</a>
+<li><a href="#toc_1.4">4. 文件打包压缩</a>
+<li><a href="#toc_1.5">5. 文件权限设置</a>
+<li><a href="#toc_1.6">6. 磁盘存储</a>
+<li><a href="#toc_1.7">7. 性能监控和优化</a>
+<li><a href="#toc_1.8">8. 网络</a>
+<li><a href="#toc_1.9">9. 其他</a>
+<li><a href="#toc_1.10">10. 参考</a>
+</ul>
+</ul>
+</div>
+</p>
+
+<h2 id="toc_1.1">1. 文件目录操作</h2>
+<h3 id="toc_1.1.1">1.1. ls 命令</h3>
+<p>
+<code>ls</code>命令是linux上最常用的命令。估计也是到目前为止我用的次数最多的命令。<code>ls</code>命令做一件很简单的事情，就是列出目录中文件和文件夹的清单。用ls不仅可以查看linux下的文件，而且可以查看文件的权限，文件一些信息等等。
+</p>
+
+<ol>
+<li>
+命令的功能
+<br />  列出查看目录下的文件和子目录。
+
+<li>
+命令格式
+<br />  <code>ls [选项] [目录名]</code>
+
+<li>
+常用参数
+<pre class="brush:bash">
+    -a, --all
+            列出目录下的所有文件，包括隐藏的文件(以.开头的文件为隐藏文件)
+    -A, --almost-all
+            同-a，但不列出"."和".."
+    -d, --directory
+            将目录像文件一样显示，而不是显示其下的文件。
+    -F
+            列出的文件名称后面加上一符号，如可执行文件加'*',目录加'/'
+    -i, --inode
+            列出每个文件的inode号
+    -r, --reverse
+            依相反次序排序
+    -R, --recursive
+            同时列出子目录
+    -S
+            根据文件大小排序
+    -t
+            以文件修改时间排序
+    -l
+            除了列出文件名之外，还将文件的权限，所有者，文件大小等信息详细列出来。
+</pre>
+
+<li>
+常用范例：
+
+<ol>
+<li>
+列出目录下的所有文件和子目录的详细资料 <code>ls -lR</code>或<code>ls -l -R</code>
+
+<li>
+列出当前目录下所有以't'开头的文件及子目录详情<code>ls -l t*</code>
+
+<li>
+只列出当前目录下的子目录 <code>ls -F | grep /$</code>
+
+<li>
+计算当前目录下的文件数和目录数 <code>ls -l * | grep "^-" |wc -l</code> <code>ls -l * | grep "^d" | wc -l</code>
+
+<li>
+指定文件时间输出格式
+<br />    <code>ls -tl --time-style=ful-iso</code>
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:~$ ls -tl --time-style=full-iso
+total 104
+drwxr-xr-x  3 waikeung waikeung  4096 2014-02-05 15:48:58.907178957 +0800 Downloads
+</pre>
+<br />    <code>ls -tl --time-style=long-iso</code>
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:~$ ls -tl --time-style=long-iso
+total 104
+drwxr-xr-x  3 waikeung waikeung  4096 2014-02-05 15:48 Downloads
+</pre>
+
+</ol>
+</ol>
+
+<h3 id="toc_1.1.2">1.2. cd 命令</h3>
+<p>
+<code>cd</code>命令也是linux上最常用的命令之一。<code>cd</code>的命令很简单。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  切换当前目录到其它目录
+
+<li>
+命令格式
+<br />  cd [目录名]
+
+<li>
+常用范例
+
+<ol>
+<li>
+进入系统根目录/ <code>cd /</code>
+
+<li>
+进入上一层目录 <code>cd ../</code>
+
+<li>
+进入当前用户根目录 <code>cd</code>或<code>cd ~</code>
+
+<li>
+返回进入此目录之前所在的目录
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:~$ cd /
+waikeung@waikeung-ThinkPad:/$ pwd
+/
+waikeung@waikeung-ThinkPad:/$ cd 
+waikeung@waikeung-ThinkPad:~$ pwd
+/home/waikeung
+waikeung@waikeung-ThinkPad:~$ cd -
+/
+waikeung@waikeung-ThinkPad:/$ cd -
+/home/waikeung
+</pre>
+
+<li>
+把上一个命令的参数作为<code>cd</code>参数使用
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp$ mkdir temp
+waikeung@waikeung-ThinkPad:/tmp$ cd !$
+cd temp
+waikeung@waikeung-ThinkPad:/tmp/temp$ pwd
+/tmp/temp
+waikeung@waikeung-ThinkPad:/tmp/temp$ 
+</pre>
+
+</ol>
+</ol>
+  
+<h3 id="toc_1.1.3">1.3. pwd 命令</h3>
+<p>
+<code>pwd</code>命令是用来查看你当前的工作目录的完整路径的。当你不知道你在哪时可以用这个命令来查看。到目前我不怎么用到，因为我基本上都很清楚我自己在哪。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  查看当前工作目录的完整路径
+
+<li>
+命令格式
+<br />  pwd [参数]
+
+<li>
+常用参数
+<br />  一般的情况下，该命令都不需要用到参数。如果目录是链接时，<code>pwd -P</code>显示出实际的路径，而非链接的路径。
+
+<li>
+常用示例
+
+<ol>
+<li>
+查看当前的工作目录 <code>pwd</code>
+
+<li>
+目录连接链接时，<code>pwd -P</code>显示实际的路径。
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:~$ cd /opt/eclipse/jre/
+waikeung@waikeung-ThinkPad:/opt/eclipse/jre$ pwd
+/opt/eclipse/jre
+waikeung@waikeung-ThinkPad:/opt/eclipse/jre$ pwd -P
+/opt/jdk1.7.0_45/jre
+waikeung@waikeung-ThinkPad:/opt/eclipse/jre$ 
+</pre>
+
+</ol>
+</ol>
+  
+<h3 id="toc_1.1.4">1.4. mkdir 命令</h3>
+<p>
+linux中创建指定名称的目录。要求创建目录的用户在当前目录中具有写权限，同时指定的目录名不能是当前目录中已有的目录。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  创建指定的目录名的目录。
+
+<li>
+命令格式
+<br />  mkdir [参数] 目录
+
+<li>
+常用参数
+<br />  -m, --mode=MODE
+<br />        set file mode (as in chmod), not a=rwx - umask
+<br />  -p, --parents
+<br />        可以是一个路径名称，若此时路径中有某些目录不存在，系统会自动建立那些还不存在的目录。
+<br />  -v, --verbose
+<br />        创建新目录时显示信息
+
+<li>
+常用示例
+
+<ol>
+<li>
+创建一个空目录 <code>mkdir test</code>
+
+<li>
+递归创建多个目录
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp$ mkdir -p test/test1
+waikeung@waikeung-ThinkPad:/tmp$ cd test/test1/
+waikeung@waikeung-ThinkPad:/tmp/test/test1$ 
+</pre>
+
+<li>
+创建权限为777的目录
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp/test$ mkdir -m 777 a
+waikeung@waikeung-ThinkPad:/tmp/test$ ls -l
+total 8
+drwxrwxrwx 2 waikeung waikeung 4096 Feb  5 20:10 a
+</pre>
+
+</ol>
+</ol>
+
+<h3 id="toc_1.1.5">1.5. rmdir 命令</h3>
+<p>
+<code>rmdir</code>命令是删除一个空目录。一个目录被删除之前必须是空的，删除目录必须对其父目录具有写的权限。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  删除空目录
+
+<li>
+命令格式
+<br />  rmdir [参数] 目录
+
+<li>
+常用参数
+<br />  -p
+<br />        递归的删除目录，当子目录删除后父目录为空时，也删除父目录。
+<br />  -v,  --verbose
+<br />        显示指令执行过程
+
+<li>
+常用示例
+
+<ol>
+<li>
+rmdir不能删除非空目录
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp$ rmdir test
+rmdir: failed to remove `test': Directory not empty
+</pre>
+
+</ol>
+</ol>
+
+<h3 id="toc_1.1.6">1.6. rm 命令</h3>
+<p>
+linux中删除文件的命令为<code>rm</code>。<code>rm</code>是最常用的命令之一，但也是危险的命令。它可以将某个目录下的所有文件及子目录全部删除。对于链接文件，只是删除了链接，原有文件保持不变。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  删除一个目录下的文件或多个文件或多个目录。
+
+<li>
+命令格式
+<br />  rm [参数] 文件
+
+<li>
+常用参数
+<br />  -f, --force
+<br />        忽略不存在的文件,不给出提示
+<br />  -i，--interactive
+<br />        进行交互式删除
+<br />  -r, -R, --recursive
+<br />        将列出的全部目录和子目录均递归删除
+<br />  -v, --verbose
+<br />        显示指令执行过程
+
+<li>
+命令示例
+
+<ol>
+<li>
+删除文件file，系统会选询问
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp/temp$ ls
+log
+waikeung@waikeung-ThinkPad:/tmp/temp$ rm -i log 
+rm: remove regular empty file `log'? y
+waikeung@waikeung-ThinkPad:/tmp/temp$ ls
+waikeung@waikeung-ThinkPad:/tmp/temp$ 
+</pre>
+
+<li>
+强行删除文件或目录
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp/temp$ ls -l
+total 12
+drwxrwxr-x 2 waikeung waikeung 4096 Feb  5 20:37 1
+drwxrwxr-x 2 waikeung waikeung 4096 Feb  5 20:37 2
+drwxrwxr-x 2 waikeung waikeung 4096 Feb  5 20:37 3
+waikeung@waikeung-ThinkPad:/tmp/temp$ cd ../
+waikeung@waikeung-ThinkPad:/tmp$ rm -r temp
+rm: descend into directory `temp'? y
+rm: remove directory `temp/1'? y
+rm: remove directory `temp/2'? y
+rm: remove directory `temp/3'? y
+rm: remove directory `temp'? y
+waikeung@waikeung-ThinkPad:/tmp$ 
+</pre>
+
+<li>
+<code>rm -rf</code>会删除目录中所有的文件和子目录，且不会询问。 <strong>！！！危险的命令</strong> 
+
+</ol>
+</ol>
+
+<h3 id="toc_1.1.7">1.7. cp 命令</h3>
+
+<h3 id="toc_1.1.8">1.8. mv 命令</h3>
+
+<h3 id="toc_1.1.9">1.9. touch 命令</h3>
+
+<h3 id="toc_1.1.10">1.10. cat 命令</h3>
+
+<h3 id="toc_1.1.11">1.11. more 命令</h3>
+
+<h3 id="toc_1.1.12">1.12. less 命令</h3>
+
+<h3 id="toc_1.1.13">1.13. head 命令</h3>
+
+<h3 id="toc_1.1.14">1.14. tail 命令</h3>
+
+<h2 id="toc_1.2">2. 文件查找</h2>
+<h3 id="toc_1.2.1">2.1. which 命令</h3>
+
+<h3 id="toc_1.2.2">2.2. whereis 命令</h3>
+
+<h3 id="toc_1.2.3">2.3. locate 命令</h3>
+
+<h2 id="toc_1.3">3. 文件和目录属性</h2>
+
+<h2 id="toc_1.4">4. 文件打包压缩</h2>
+
+<h2 id="toc_1.5">5. 文件权限设置</h2>
+
+<h2 id="toc_1.6">6. 磁盘存储</h2>
+
+<h2 id="toc_1.7">7. 性能监控和优化</h2>
+
+<h2 id="toc_1.8">8. 网络</h2>
+
+<h2 id="toc_1.9">9. 其他</h2>
+
+<h2 id="toc_1.10">10. 参考</h2>
+<ul>
+<li>
+<a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a>
+
+</ul>
+
+</div>
+<div id="footer">
+2013-2014 Creat by vimwiki
+</div>
+</section>
+</body>
+</html>

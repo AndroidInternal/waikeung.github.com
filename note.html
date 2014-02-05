@@ -33,7 +33,19 @@
 
 <div id="main">
 
-<h2 id="toc_0.1">1. 零乱的笔记</h2>
+<h1 id="toc_1"> 笔记</h1>
+<div class="toc">
+<ul>
+<li><a href="#toc_1"> 笔记</a>
+<ul>
+<li><a href="#toc_1.1">1. 零乱的笔记</a>
+<li><a href="#toc_1.2">2. vim寄存器</a>
+<li><a href="#toc_1.3">3. vimwiki表格</a>
+<li><a href="#toc_1.4">4. Linux输入输出重定向</a>
+</ul>
+</ul>
+</div>
+<h2 id="toc_1.1">1. 零乱的笔记</h2>
 <hr />
 
 <p>
@@ -73,6 +85,10 @@ alsamixer
 </ul>
 
 <p>
+操作音频的瑞士军刀 SOX
+</p>
+
+<p>
 怎么解决vimwiki中数学公式的输入？
 </p>
 
@@ -80,8 +96,35 @@ alsamixer
  \( \sum_i a_i^2 = 1 \)
 </p>
  
+<h2 id="toc_1.2">2. vim寄存器</h2>
+<p>
+<code>:registers</code>/<code>:dis</code> 列出所有存在寄存器的内容
+寄存器类型：
+</p>
+<ul>
+<li>
+未命令寄存器 ""   VIM默认寄存器
 
-<h2 id="toc_0.2">2. vimwiki表格</h2>
+<li>
+字母寄存器   "a-"z/"A-"Z  完全由用户指定内容的寄存器
+
+<li>
+只读寄存器
+
+<ul>
+<li>
+"%  包含当前文件的名字，方便在文件中插入文件名
+
+<li>
+"#  包含当前可选择的文件名，指在会话中使用过的文件的名字
+
+<li>
+"+ 系统剪切板
+
+</ul>
+</ul>
+
+<h2 id="toc_1.3">3. vimwiki表格</h2>
 <table class='center'>
 <tr>
 <td rowspan="3">
@@ -117,20 +160,20 @@ h
 </tr>
 </table>
 
-<pre>
+<pre class="brush:bash">
  | a  | b  | c | d |
  | \/ | e  | &gt; | f |
  | \/ | \/ | &gt; | g |
  | h  | &gt;  | &gt; | &gt; |
 </pre>
 
-<h2 id="toc_0.3">3. 网络爬虫</h2>
+<h2 id="toc_1.4">4. Linux输入输出重定向</h2>
 <p>
-火车票爬虫搞定
+0,1,2分别表示标准输入，标准输出，标准错误信息输出
 </p>
 
 <p>
-需要收集csdn，博客园，以及一些其他网页上的资料。尝试写一个网络爬虫。
+将错误信息重定向到标准输出 <code>2&gt;&amp;1</code>
 </p>
 
 </div>
