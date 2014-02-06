@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
-<link rel="Stylesheet" type="text/css" href="../head.css">
+<link rel="Stylesheet" type="text/css" href="../article.css">
 <title>python实现博客园MetaWeblog接口</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="scripts/shCore.js"></script>
@@ -18,23 +18,13 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
-<section id="container">
-    <section id="masthead">
-    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
-    <h2>By <span class="author">waikeung</a></h2>
-    <nav>
-        <a class="menu" href="../index.html">Home</a>
-        <a class="menu" href="../blog/index.html">Archive</a>
-        <a class="menu" href="../code.html">Code</a>
-        <a class="menu" href="../note.html">Note</a>
-        <a class="menu" href="../about.html">About</a>
-    </nav>
-    </section>
-
-<div id="main">
+<div id="header">
+    <h1><a href="../index.html">WaikeungShen'Blog</a></h1>
+</div>
+<div id="article">
 
 
-<h1 id="toc_1"> python实现博客园MetaWeblog接口</h1>
+<h1 id="toc_1">python实现博客园MetaWeblog接口</h1>
 
 <p>
 总感觉linux上没有一个好用的博客客户端，或者上不能满足我的要求。就突发奇想用<code>python</code>来实现一个，反正都有接口摆在那。这几天正好在看<code>python</code>，正好可以试试。
@@ -43,7 +33,7 @@
 <p>
 博客园用的是MetaWeblog的接口。MetaWeblog是建立在XMLRPC接口之上的，<code>python</code>里的<code>xmlrpclib</code>可以很好的使用。
 </p>
-<h2 id="toc_1.1">1. 连接到博客的服务器,并取得可用的操作</h2>
+<h2 id="toc_1.1">连接到博客的服务器,并取得可用的操作</h2>
 <pre class="brush:python">
 #!/usr/bin/python
 
@@ -84,7 +74,7 @@ class Blog(object):
             self.methods = self.server.system.listMethods()
         return self.methods.sort()
 </pre>
-<h2 id="toc_1.2">2. 实现具体的可用的操作</h2>
+<h2 id="toc_1.2">实现具体的可用的操作</h2>
 
 <pre class="brush:python">
 class cnblog(Blog):
@@ -132,7 +122,7 @@ class cnblog(Blog):
         return self.server.metaWeblog.newPost(self.blogid, self.username, self.password, post, publish)
 </pre>
   
-<h2 id="toc_1.3">3. 下面的是自己一些测试的代码</h2>
+<h2 id="toc_1.3">下面的是自己一些测试的代码</h2>
 <pre class="brush:python">
 def menu():
     print "*" * 20
@@ -169,7 +159,7 @@ if __name__ == "__main__":
             print "choose Error"
 </pre>
 
-<h2 id="toc_1.4">4. 参考</h2>
+<h2 id="toc_1.4">参考</h2>
 <ol>
 <li>
 <a href="http://www.cnblogs.com/ans42/archive/2011/06/16/2083076.html">http://www.cnblogs.com/ans42/archive/2011/06/16/2083076.html</a>
@@ -181,8 +171,7 @@ if __name__ == "__main__":
 
 </div>
 <div id="footer">
-2013 Creat by vimwiki
+2013-2014 Creat by vimwiki
 </div>
-</section>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
-<link rel="Stylesheet" type="text/css" href="../head.css">
+<link rel="Stylesheet" type="text/css" href="../article.css">
 <title>graphviz</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="scripts/shCore.js"></script>
@@ -18,22 +18,12 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
-<section id="container">
-    <section id="masthead">
-    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
-    <h2>By <span class="author">waikeung</a></h2>
-    <nav>
-        <a class="menu" href="../index.html">Home</a>
-        <a class="menu" href="../blog/index.html">Archive</a>
-        <a class="menu" href="../code.html">Code</a>
-        <a class="menu" href="../note.html">Note</a>
-        <a class="menu" href="../about.html">About</a>
-    </nav>
-    </section>
+<div id="header">
+    <h1><a href="../index.html">WaikeungShen'Blog</a></h1>
+</div>
+<div id="article">
 
-<div id="main">
-
-<h1 id="toc_1"> Graphviz工具使用</h1>
+<h1 id="toc_1">Graphviz工具使用</h1>
 <p>
 Graphviz是一个DOT语言的解析工具，同时将DOT最后输出成指定格式的文件。
 </p>
@@ -42,7 +32,7 @@ Graphviz是一个DOT语言的解析工具，同时将DOT最后输出成指定格
 学习使用<code>Graphviz</code>之前，首先要了解下<code>DOT</code>语言。
 <hr />
 </p>
-<h2 id="toc_1.1">1. 基本无向图和有向图</h2>
+<h2 id="toc_1.1">基本无向图和有向图</h2>
 <ul>
 <li>
 基本无向图
@@ -87,7 +77,7 @@ digraph example2 {
 分析：无向图第一行用<code>graph</code>，结点的连接用<code>--</code>;而有向图第一行用<code>digraph</code>，结点连接用<code>-&gt;</code>。
 </p>
 
-<h2 id="toc_1.2">2. 进阶</h2>
+<h2 id="toc_1.2">进阶</h2>
 <pre class="brush:bash">
 digraph example3 {
 size ="4,4";
@@ -176,7 +166,7 @@ digraph example4 {
 write by 2014-01-02
 </p>
 
-<h2 id="toc_1.3">3. 参考</h2>
+<h2 id="toc_1.3">参考</h2>
 <ol>
 <li>
 使用Graphviz生成自动化系统图 <a href="http://www.ibm.com/developerworks/cn/aix/library/au-aix-graphviz/">http://www.ibm.com/developerworks/cn/aix/library/au-aix-graphviz/</a>
@@ -188,8 +178,7 @@ Graphviz工具使用(1) <a href="http://www.xiebiao.com/blog/?p=1006">http://www
 
 </div>
 <div id="footer">
-2013 Creat by vimwiki
+2013-2014 Creat by vimwiki
 </div>
-</section>
 </body>
 </html>

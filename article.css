@@ -1,0 +1,27 @@
+#article {
+    width:950px;
+    margin:2em auto;
+}
+
+#article h1 {
+    font-size:1.8em;
+    text-align:right;
+    color:#800;
+    padding:5px 0;
+    margin:1.2em 0 0.5em 0;
+    font-weight:normal;
+}
+
+h2 {
+    border-left:5px #008b8b solid;
+    border-bottom:1px solid blue;
+}
+#article a {
+    color:#008b8b;
+}
+.time {
+    font-size:1.1em;
+    padding:0 0.2em 2em 0;
+    color:#5a564d;
+    text-align:right;
+}

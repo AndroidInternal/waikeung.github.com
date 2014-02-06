@@ -1,0 +1,12 @@
+h2 {
+    font-size:1.3em;
+    padding:5px 0;
+    margin:1.2em 0 0.5em 0;
+    font-weight:normal;
+}
+
+ul {
+    list-style-type:circle;
+    margin:0 2em;
+    //list-style-position:inside;
+}

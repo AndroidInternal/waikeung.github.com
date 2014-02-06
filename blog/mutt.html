@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
-<link rel="Stylesheet" type="text/css" href="../head.css">
+<link rel="Stylesheet" type="text/css" href="../article.css">
 <title>Mutt电子邮件的使用</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="scripts/shCore.js"></script>
@@ -18,37 +18,27 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
-<section id="container">
-    <section id="masthead">
-    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
-    <h2>By <span class="author">waikeung</a></h2>
-    <nav>
-        <a class="menu" href="../index.html">Home</a>
-        <a class="menu" href="../blog/index.html">Archive</a>
-        <a class="menu" href="../code.html">Code</a>
-        <a class="menu" href="../note.html">Note</a>
-        <a class="menu" href="../about.html">About</a>
-    </nav>
-    </section>
-
-<div id="main">
+<div id="header">
+    <h1><a href="../index.html">WaikeungShen'Blog</a></h1>
+</div>
+<div id="article">
 
 <p>
 2013-11-20
 </p>
-<h1 id="toc_1"> Mutt电子邮件的使用</h1>
+<h1 id="toc_1">Mutt电子邮件的使用</h1>
 <div class="toc">
 <ul>
-<li><a href="#toc_1"> Mutt电子邮件的使用</a>
+<li><a href="#toc_1">Mutt电子邮件的使用</a>
 <ul>
-<li><a href="#toc_1.1">1. 1.程序安装</a>
-<li><a href="#toc_1.2">2. 2.配置发信工具 msmtp</a>
-<li><a href="#toc_1.3">3. 3.配置收信工具getmail</a>
-<li><a href="#toc_1.4">4. 4.创建邮箱文件</a>
-<li><a href="#toc_1.5">5. 5、配置信件分拣、投递工具procmail</a>
-<li><a href="#toc_1.6">6. 6、信件管理工具mutt基本配置</a>
-<li><a href="#toc_1.7">7. 7、信件管理工具mutt个性化配置</a>
-<li><a href="#toc_1.8">8. 参考</a>
+<li><a href="#toc_1.1">1.程序安装</a>
+<li><a href="#toc_1.2">2.配置发信工具 msmtp</a>
+<li><a href="#toc_1.3">3.配置收信工具getmail</a>
+<li><a href="#toc_1.4">4.创建邮箱文件</a>
+<li><a href="#toc_1.5">5、配置信件分拣、投递工具procmail</a>
+<li><a href="#toc_1.6">6、信件管理工具mutt基本配置</a>
+<li><a href="#toc_1.7">7、信件管理工具mutt个性化配置</a>
+<li><a href="#toc_1.8">参考</a>
 </ul>
 </ul>
 </div>
@@ -85,7 +75,7 @@ msmtp 用来发送邮件
 (11/20)最终还是选择了pop3，offlineimap还是没有搞定。
 </p>
 
-<h2 id="toc_1.1">1. 1.程序安装</h2>
+<h2 id="toc_1.1">1.程序安装</h2>
 <hr />
 <p>
 安装mutt,msmtp,getmail,procmail:
@@ -100,7 +90,7 @@ $ sudo apt-get install mutt msmtp getmail4 procmail
 $ sudo apt-get install vim
 </pre>
 
-<h2 id="toc_1.2">2. 2.配置发信工具 msmtp</h2>
+<h2 id="toc_1.2">2.配置发信工具 msmtp</h2>
 <hr />
 <p>
 在家目录下建立名为 .msmtprc 的配置文件:
@@ -138,7 +128,7 @@ account default: gmail
 $ chmod 600 ~/.msmtprc
 </pre>
 
-<h2 id="toc_1.3">3. 3.配置收信工具getmail</h2>
+<h2 id="toc_1.3">3.配置收信工具getmail</h2>
 <hr />
 <p>
 首先在家目录下建立 .getmail 文件夹：
@@ -213,7 +203,7 @@ $ crontab -e
 $ chmod -R 700 ~/.getmail
 </pre>
 
-<h2 id="toc_1.4">4. 4.创建邮箱文件</h2>
+<h2 id="toc_1.4">4.创建邮箱文件</h2>
 <hr />
 <p>
 getmail收取信件，而信件的存放地点，我们还未指定。在家目录下建立mail目录，其内用文本文件inbox、sent作为收件箱和发件箱：
@@ -229,7 +219,7 @@ $ touch ~/mail/inbox ~/mail/sent ~/mail/.procmaillog
 $ chmod -R 700 ~/mail
 </pre>
   
-<h2 id="toc_1.5">5. 5、配置信件分拣、投递工具procmail</h2>
+<h2 id="toc_1.5">5、配置信件分拣、投递工具procmail</h2>
 <hr />
 <p>
 getmail只是将收到的信件交由procmail处理，procmail如何让它们到达我们已经创建好的收件箱，需要在.procmailrc中说明：
@@ -258,7 +248,7 @@ LOGFILE=$MAILDIR/procmaillog
 procmail很强大，可以设置各种分拣、投递的规则，当然过滤垃圾邮件也不在话下。这里只是将除gmail外所有信件都投到inbox中。
 </p>
 
-<h2 id="toc_1.6">6. 6、信件管理工具mutt基本配置</h2>
+<h2 id="toc_1.6">6、信件管理工具mutt基本配置</h2>
 <hr />
 <p>
 以上的msmtp、getmail、procmail，我们平时都接触不到，因为管理、呈现信件的事情由mutt承担，所以只要和mutt打交道就行了。
@@ -301,7 +291,7 @@ set assumed_charset    = "gb2312"    # 用gb2312编码显示未经MIME编码的�
 set rfc2047_parameters = yes         # 用gb2312编码显示中文附件名
 </pre>
   
-<h2 id="toc_1.7">7. 7、信件管理工具mutt个性化配置</h2>
+<h2 id="toc_1.7">7、信件管理工具mutt个性化配置</h2>
 <hr />
 <p>
 参考我的.muttrc配置文件
@@ -405,7 +395,7 @@ color index cyan default ~D              # Deleted
 color index black cyan ~F               # flaged
 </pre>
 
-<h2 id="toc_1.8">8. 参考</h2>
+<h2 id="toc_1.8">参考</h2>
 <ol>
 <li>
 <a href="http://newnuy.com/?p=24">浅述mutt客户端</a> 
@@ -414,8 +404,7 @@ color index black cyan ~F               # flaged
 
 </div>
 <div id="footer">
-2013 Creat by vimwiki
+2013-2014 Creat by vimwiki
 </div>
-</section>
 </body>
 </html>

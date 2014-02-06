@@ -2,7 +2,7 @@
 <html>
 <head>
 <link rel="Stylesheet" type="text/css" href="../style.css">
-<link rel="Stylesheet" type="text/css" href="../head.css">
+<link rel="Stylesheet" type="text/css" href="../article.css">
 <title>Linux Commands</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script type="text/javascript" src="scripts/shCore.js"></script>
@@ -18,66 +18,56 @@
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 </head>
 <body>
-<section id="container">
-    <section id="masthead">
-    <h1 class="title"><a href="../index.html">Waikeung's Blog</a></h1>
-    <h2>By <span class="author">waikeung</a></h2>
-    <nav>
-        <a class="menu" href="../index.html">Home</a>
-        <a class="menu" href="../blog/index.html">Archive</a>
-        <a class="menu" href="../code.html">Code</a>
-        <a class="menu" href="../note.html">Note</a>
-        <a class="menu" href="../about.html">About</a>
-    </nav>
-    </section>
+<div id="header">
+    <h1><a href="../index.html">WaikeungShen'Blog</a></h1>
+</div>
+<div id="article">
 
-<div id="main">
-
-<h1 id="toc_1"> Linux Commands</h1>
+<h1 id="toc_1">Linux Commands</h1>
 <p>
 记录下自己一些用到的linux命令。
 <div class="toc">
 <ul>
-<li><a href="#toc_1"> Linux Commands</a>
+<li><a href="#toc_1">Linux Commands</a>
 <ul>
-<li><a href="#toc_1.1">1. 文件目录操作</a>
+<li><a href="#toc_1.1">文件目录操作</a>
 <ul>
-<li><a href="#toc_1.1.1">1.1. ls 命令</a>
-<li><a href="#toc_1.1.2">1.2. cd 命令</a>
-<li><a href="#toc_1.1.3">1.3. pwd 命令</a>
-<li><a href="#toc_1.1.4">1.4. mkdir 命令</a>
-<li><a href="#toc_1.1.5">1.5. rmdir 命令</a>
-<li><a href="#toc_1.1.6">1.6. rm 命令</a>
-<li><a href="#toc_1.1.7">1.7. cp 命令</a>
-<li><a href="#toc_1.1.8">1.8. mv 命令</a>
-<li><a href="#toc_1.1.9">1.9. touch 命令</a>
-<li><a href="#toc_1.1.10">1.10. cat 命令</a>
-<li><a href="#toc_1.1.11">1.11. more 命令</a>
-<li><a href="#toc_1.1.12">1.12. less 命令</a>
-<li><a href="#toc_1.1.13">1.13. head 命令</a>
-<li><a href="#toc_1.1.14">1.14. tail 命令</a>
+<li><a href="#toc_1.1.1">ls 命令</a>
+<li><a href="#toc_1.1.2">cd 命令</a>
+<li><a href="#toc_1.1.3">pwd 命令</a>
+<li><a href="#toc_1.1.4">mkdir 命令</a>
+<li><a href="#toc_1.1.5">rmdir 命令</a>
+<li><a href="#toc_1.1.6">rm 命令</a>
+<li><a href="#toc_1.1.7">cp 命令</a>
+<li><a href="#toc_1.1.8">mv 命令</a>
+<li><a href="#toc_1.1.9">touch 命令</a>
+<li><a href="#toc_1.1.10">cat 命令</a>
+<li><a href="#toc_1.1.11">more 命令</a>
+<li><a href="#toc_1.1.12">less 命令</a>
+<li><a href="#toc_1.1.13">head 命令</a>
+<li><a href="#toc_1.1.14">tail 命令</a>
 </ul>
-<li><a href="#toc_1.2">2. 文件查找</a>
+<li><a href="#toc_1.2">文件查找</a>
 <ul>
-<li><a href="#toc_1.2.1">2.1. which 命令</a>
-<li><a href="#toc_1.2.2">2.2. whereis 命令</a>
-<li><a href="#toc_1.2.3">2.3. locate 命令</a>
+<li><a href="#toc_1.2.1">which 命令</a>
+<li><a href="#toc_1.2.2">whereis 命令</a>
+<li><a href="#toc_1.2.3">locate 命令</a>
 </ul>
-<li><a href="#toc_1.3">3. 文件和目录属性</a>
-<li><a href="#toc_1.4">4. 文件打包压缩</a>
-<li><a href="#toc_1.5">5. 文件权限设置</a>
-<li><a href="#toc_1.6">6. 磁盘存储</a>
-<li><a href="#toc_1.7">7. 性能监控和优化</a>
-<li><a href="#toc_1.8">8. 网络</a>
-<li><a href="#toc_1.9">9. 其他</a>
-<li><a href="#toc_1.10">10. 参考</a>
+<li><a href="#toc_1.3">文件和目录属性</a>
+<li><a href="#toc_1.4">文件打包压缩</a>
+<li><a href="#toc_1.5">文件权限设置</a>
+<li><a href="#toc_1.6">磁盘存储</a>
+<li><a href="#toc_1.7">性能监控和优化</a>
+<li><a href="#toc_1.8">网络</a>
+<li><a href="#toc_1.9">其他</a>
+<li><a href="#toc_1.10">参考</a>
 </ul>
 </ul>
 </div>
 </p>
 
-<h2 id="toc_1.1">1. 文件目录操作</h2>
-<h3 id="toc_1.1.1">1.1. ls 命令</h3>
+<h2 id="toc_1.1">文件目录操作</h2>
+<h3 id="toc_1.1.1">ls 命令</h3>
 <p>
 <code>ls</code>命令是linux上最常用的命令。估计也是到目前为止我用的次数最多的命令。<code>ls</code>命令做一件很简单的事情，就是列出目录中文件和文件夹的清单。用ls不仅可以查看linux下的文件，而且可以查看文件的权限，文件一些信息等等。
 </p>
@@ -150,7 +140,7 @@ drwxr-xr-x  3 waikeung waikeung  4096 2014-02-05 15:48 Downloads
 </ol>
 </ol>
 
-<h3 id="toc_1.1.2">1.2. cd 命令</h3>
+<h3 id="toc_1.1.2">cd 命令</h3>
 <p>
 <code>cd</code>命令也是linux上最常用的命令之一。<code>cd</code>的命令很简单。
 </p>
@@ -206,7 +196,7 @@ waikeung@waikeung-ThinkPad:/tmp/temp$
 </ol>
 </ol>
   
-<h3 id="toc_1.1.3">1.3. pwd 命令</h3>
+<h3 id="toc_1.1.3">pwd 命令</h3>
 <p>
 <code>pwd</code>命令是用来查看你当前的工作目录的完整路径的。当你不知道你在哪时可以用这个命令来查看。到目前我不怎么用到，因为我基本上都很清楚我自己在哪。
 </p>
@@ -245,7 +235,7 @@ waikeung@waikeung-ThinkPad:/opt/eclipse/jre$
 </ol>
 </ol>
   
-<h3 id="toc_1.1.4">1.4. mkdir 命令</h3>
+<h3 id="toc_1.1.4">mkdir 命令</h3>
 <p>
 linux中创建指定名称的目录。要求创建目录的用户在当前目录中具有写权限，同时指定的目录名不能是当前目录中已有的目录。
 </p>
@@ -295,7 +285,7 @@ drwxrwxrwx 2 waikeung waikeung 4096 Feb  5 20:10 a
 </ol>
 </ol>
 
-<h3 id="toc_1.1.5">1.5. rmdir 命令</h3>
+<h3 id="toc_1.1.5">rmdir 命令</h3>
 <p>
 <code>rmdir</code>命令是删除一个空目录。一个目录被删除之前必须是空的，删除目录必须对其父目录具有写的权限。
 </p>
@@ -330,7 +320,7 @@ rmdir: failed to remove `test': Directory not empty
 </ol>
 </ol>
 
-<h3 id="toc_1.1.6">1.6. rm 命令</h3>
+<h3 id="toc_1.1.6">rm 命令</h3>
 <p>
 linux中删除文件的命令为<code>rm</code>。<code>rm</code>是最常用的命令之一，但也是危险的命令。它可以将某个目录下的所有文件及子目录全部删除。对于链接文件，只是删除了链接，原有文件保持不变。
 </p>
@@ -394,7 +384,7 @@ waikeung@waikeung-ThinkPad:/tmp$
 </ol>
 </ol>
 
-<h3 id="toc_1.1.7">1.7. cp 命令</h3>
+<h3 id="toc_1.1.7">cp 命令</h3>
 <p>
 <code>cp</code>命令是用来复制文件或者目录的。
 </p>
@@ -454,7 +444,7 @@ waikeung@waikeung-ThinkPad:/tmp$
 </ol>
 </ol>
 
-<h3 id="toc_1.1.8">1.8. mv 命令</h3>
+<h3 id="toc_1.1.8">mv 命令</h3>
 <p>
 linux下用来移动文件或修改文件名的命令
 </p>
@@ -476,40 +466,40 @@ linux下用来移动文件或修改文件名的命令
 
 </ol>
 
-<h3 id="toc_1.1.9">1.9. touch 命令</h3>
+<h3 id="toc_1.1.9">touch 命令</h3>
 
-<h3 id="toc_1.1.10">1.10. cat 命令</h3>
+<h3 id="toc_1.1.10">cat 命令</h3>
 
-<h3 id="toc_1.1.11">1.11. more 命令</h3>
+<h3 id="toc_1.1.11">more 命令</h3>
 
-<h3 id="toc_1.1.12">1.12. less 命令</h3>
+<h3 id="toc_1.1.12">less 命令</h3>
 
-<h3 id="toc_1.1.13">1.13. head 命令</h3>
+<h3 id="toc_1.1.13">head 命令</h3>
 
-<h3 id="toc_1.1.14">1.14. tail 命令</h3>
+<h3 id="toc_1.1.14">tail 命令</h3>
 
-<h2 id="toc_1.2">2. 文件查找</h2>
-<h3 id="toc_1.2.1">2.1. which 命令</h3>
+<h2 id="toc_1.2">文件查找</h2>
+<h3 id="toc_1.2.1">which 命令</h3>
 
-<h3 id="toc_1.2.2">2.2. whereis 命令</h3>
+<h3 id="toc_1.2.2">whereis 命令</h3>
 
-<h3 id="toc_1.2.3">2.3. locate 命令</h3>
+<h3 id="toc_1.2.3">locate 命令</h3>
 
-<h2 id="toc_1.3">3. 文件和目录属性</h2>
+<h2 id="toc_1.3">文件和目录属性</h2>
 
-<h2 id="toc_1.4">4. 文件打包压缩</h2>
+<h2 id="toc_1.4">文件打包压缩</h2>
 
-<h2 id="toc_1.5">5. 文件权限设置</h2>
+<h2 id="toc_1.5">文件权限设置</h2>
 
-<h2 id="toc_1.6">6. 磁盘存储</h2>
+<h2 id="toc_1.6">磁盘存储</h2>
 
-<h2 id="toc_1.7">7. 性能监控和优化</h2>
+<h2 id="toc_1.7">性能监控和优化</h2>
 
-<h2 id="toc_1.8">8. 网络</h2>
+<h2 id="toc_1.8">网络</h2>
 
-<h2 id="toc_1.9">9. 其他</h2>
+<h2 id="toc_1.9">其他</h2>
 
-<h2 id="toc_1.10">10. 参考</h2>
+<h2 id="toc_1.10">参考</h2>
 <ul>
 <li>
 <a href="http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html">http://www.cnblogs.com/peida/archive/2012/12/05/2803591.html</a>
@@ -520,6 +510,5 @@ linux下用来移动文件或修改文件名的命令
 <div id="footer">
 2013-2014 Creat by vimwiki
 </div>
-</section>
 </body>
 </html>
