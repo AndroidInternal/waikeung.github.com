@@ -395,8 +395,86 @@ waikeung@waikeung-ThinkPad:/tmp$
 </ol>
 
 <h3 id="toc_1.1.7">1.7. cp 命令</h3>
+<p>
+<code>cp</code>命令是用来复制文件或者目录的。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  将源文件复制到目标文件，或将多个源文件复制到目录。
+
+<li>
+命令格式
+<br />  cp [参数] [-T] 源 目标
+<br />  cp [参数] 源 目录
+<br />  cp [参数] -t 目录 源
+
+<li>
+常用参数
+<br />  -a, --archive
+<br />        等于 -dR --preserve=all
+<br />  -d
+<br />        等于 --no-dereference --preserve=links,拷贝时保留链接
+<br />  -f, --force
+<br />        如果目标文件无法打开则将其删除并重试(当 -n 选项存在时则不需要再选此项)
+<br />  -i, --interactive
+<br />        交互式复制(使用-n选项失效)
+<br />  -l, --link
+<br />        建立硬链接而不是复制
+<br />  -n, --no-clobber
+<br />        不要覆盖已经存在的文件
+<br />  -p
+<br />        复制源文件内容后，还将其修改时间和访问权限也复制到新文件
+<br />  -R, -r, --recursive
+<br />        复制目录及目录内的所有项目
+<br />  -s, --symbolic-link
+<br />        复制成符号链接文件
+<br />  -T, --no-target-directory
+<br />        把目标当成一个普通文件
+<br />  -u, --update
+<br />        只会在源文件的修改时间较目标文件新时，才会复制
+
+<li>
+常用示例
+
+<ol>
+<li>
+将文件file1复制成file2，复制后名称被改为file2 <code>cp -i file1 file2</code> 或 <code>cp file1 file2</code>
+
+<li>
+将文件file1复制到dir1目录下，复制后的名称仍为file1 <code>cp -i file1 dir1</code> 或 <code>cp file1 dir1</code>
+
+<li>
+将目录dir1复制到dir2目录下 <code>cp -r dir1 dir2</code>
+
+<li>
+将目录dir1下所有文件包括子目录，都复制到dir2目录下 <code>cp -r dir1/*.* dir2</code>
+
+</ol>
+</ol>
 
 <h3 id="toc_1.1.8">1.8. mv 命令</h3>
+<p>
+linux下用来移动文件或修改文件名的命令
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  视mv命令中第二个参数类型的不同（是目标文件还是目标目录），mv命令将文件重命名或将其移至一个新的目录中。当第二个参数类型是文件时，mv命令完成文件重命名，此时，源文件只能有一个（也可以是源目录名），它将所给的源文件或目录重命名为给定的目标文件名。当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，mv命令将各参数指定的源文件均移至目标目录中。在跨文件系统移动文件时，mv先拷贝，再将原有文件删除，而链至该文件的链接也将丢失。
+
+<li>
+命令格式
+<br />  mv [参数] 源文件或目录 目标文件或目录
+
+<li>
+常用参数
+
+<li>
+常用示例
+
+</ol>
 
 <h3 id="toc_1.1.9">1.9. touch 命令</h3>
 
