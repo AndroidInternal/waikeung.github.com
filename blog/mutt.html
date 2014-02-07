@@ -23,10 +23,11 @@
 </div>
 <div id="article">
 
-<p>
-2013-11-20
-</p>
 <h1 id="toc_1">Mutt电子邮件的使用</h1>
+<p>
+<p class="time">2013-11-20</p>
+</p>
+
 <div class="toc">
 <ul>
 <li><a href="#toc_1">Mutt电子邮件的使用</a>
@@ -76,7 +77,6 @@ msmtp 用来发送邮件
 </p>
 
 <h2 id="toc_1.1">1.程序安装</h2>
-<hr />
 <p>
 安装mutt,msmtp,getmail,procmail:
 </p>
@@ -91,7 +91,6 @@ $ sudo apt-get install vim
 </pre>
 
 <h2 id="toc_1.2">2.配置发信工具 msmtp</h2>
-<hr />
 <p>
 在家目录下建立名为 .msmtprc 的配置文件:
 </p>
@@ -129,7 +128,6 @@ $ chmod 600 ~/.msmtprc
 </pre>
 
 <h2 id="toc_1.3">3.配置收信工具getmail</h2>
-<hr />
 <p>
 首先在家目录下建立 .getmail 文件夹：
 </p>
@@ -204,7 +202,6 @@ $ chmod -R 700 ~/.getmail
 </pre>
 
 <h2 id="toc_1.4">4.创建邮箱文件</h2>
-<hr />
 <p>
 getmail收取信件，而信件的存放地点，我们还未指定。在家目录下建立mail目录，其内用文本文件inbox、sent作为收件箱和发件箱：
 </p>
@@ -220,7 +217,6 @@ $ chmod -R 700 ~/mail
 </pre>
   
 <h2 id="toc_1.5">5、配置信件分拣、投递工具procmail</h2>
-<hr />
 <p>
 getmail只是将收到的信件交由procmail处理，procmail如何让它们到达我们已经创建好的收件箱，需要在.procmailrc中说明：
 </p>
@@ -249,7 +245,6 @@ procmail很强大，可以设置各种分拣、投递的规则，当然过滤垃
 </p>
 
 <h2 id="toc_1.6">6、信件管理工具mutt基本配置</h2>
-<hr />
 <p>
 以上的msmtp、getmail、procmail，我们平时都接触不到，因为管理、呈现信件的事情由mutt承担，所以只要和mutt打交道就行了。
 </p>
@@ -292,7 +287,6 @@ set rfc2047_parameters = yes         # 用gb2312编码显示中文附件名
 </pre>
   
 <h2 id="toc_1.7">7、信件管理工具mutt个性化配置</h2>
-<hr />
 <p>
 参考我的.muttrc配置文件
 </p>
