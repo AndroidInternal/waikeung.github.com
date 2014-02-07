@@ -460,23 +460,233 @@ linux下用来移动文件或修改文件名的命令
 
 <li>
 常用参数
+<br />  -f, --force
+<br />        如果目标文件爱你存在，直接覆盖。
+<br />  -i, --interactive
+<br />        交互式移动或重命名。
+<br />  -t, --target-directory=DIRECTORY
+<br />        把所有文件移动到目标目录，适用于移动多文件。
 
 <li>
 常用示例
 
+<ol>
+<li>
+文件改名 <code>mv file1 file2</code> 将file1重命名为file2。
+
+<li>
+移动文件 <code>mv file1 dir1</code> 将file1移动到dir1目录中。
+
+<li>
+将file1，file2，file3移动到dir1目录中。 <code>mv -t dir1 file1 file2 file3</code>
+
+<li>
+目录的移动 <code>mv dir1 dir2</code> 若dir2不存在，则dir1重命名为dir2，若dir2存在，则dir1移动到dir2中。
+
+</ol>
 </ol>
 
 <h3 id="toc_1.1.9">touch 命令</h3>
 
 <h3 id="toc_1.1.10">cat 命令</h3>
+<p>
+<code>cat</code>命令可以连接文件和将文件打印到标准输出中。
+</p>
+<ol>
+<li>
+命令功能
+<br />  <code>cat</code>命令有三大功能
+
+<ol>
+<li>
+一次显示整个文件：<code>cat filename</code>
+
+<li>
+从键盘创建一个新文件：<code>cat &gt; filename</code> 只能创建新文件，不能编译以后文件。
+
+<li>
+将一个文件合并成一个文件：<code>cat file1 file2 file3 &gt; file4</code>
+
+</ol>
+<li>
+命令格式
+<br />  cat [参数] 文件
+
+<li>
+常用参数
+<br />  -A, --show-all
+<br />        等价与 -vET
+<br />  -b, --number-nonblank
+<br />        对非空的行输出行编号。
+<br />  -E, --show-ends
+<br />        在每行结束处显示$
+<br />  -n, --number
+<br />        对所有输出行显示行编号
+<br />  -s, --squeeze-blank
+<br />        多行空白行替换为一行空白行
+<br />  -T, --show-tabs
+<br />        将TAB键显示为^I
+<br />  -v, --show-nonprinting
+<br />        用^和M-引用，除了LFD和TAB
+
+<li>
+常用示例
+
+<ol>
+<li>
+将一个文件打印到标准输出 <code>cat filename</code>
+
+<li>
+从键盘创建一个新文件
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp$ cat &gt; hi &lt;&lt;EOF
+&gt; Hello
+&gt; I'm here!
+&gt; PWD=$(pwd)
+&gt; EOF
+waikeung@waikeung-ThinkPad:/tmp$ cat hi
+Hello
+I'm here!
+PWD=/tmp
+waikeung@waikeung-ThinkPad:/tmp$ 
+</pre>
+
+<ol>
+<li>
+将file1 file2 合并成 file
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/tmp$ cat file1
+one
+two
+three
+waikeung@waikeung-ThinkPad:/tmp$ cat file2
+1
+2
+3
+waikeung@waikeung-ThinkPad:/tmp$ cat file1 file2 &gt; file
+waikeung@waikeung-ThinkPad:/tmp$ cat file
+one
+two
+three
+1
+2
+3
+waikeung@waikeung-ThinkPad:/tmp$ 
+</pre>
+
+</ol>
+</ol>
+</ol>
 
 <h3 id="toc_1.1.11">more 命令</h3>
 
 <h3 id="toc_1.1.12">less 命令</h3>
 
 <h3 id="toc_1.1.13">head 命令</h3>
+<p>
+<code>head</code>用来显示文件的开头。
+</p>
+<ol>
+<li>
+命令功能
+<br />  显示文件的开头到标准输出。默认显示10行。
+
+<li>
+命令格式
+<br />  head [参数] [文件]
+
+<li>
+常用参数
+<br />  -c, --bytes=[-]k
+<br />        显示字节数
+<br />  -n, --lines=[-]k
+<br />        显示行数
+<br />  -q, --quiet, --silent
+<br />        不显示文件名
+<br />  -v, --verbose
+<br />        显示文件名
+
+<li>
+常用示例
+
+<ol>
+<li>
+显示文件前5行 <code>head -n 5 file</code>
+
+<li>
+显示文件前32个字节 <code>head -c 32 file</code>
+
+<li>
+显示文件除了最后5行 <code>head -n -5 file</code>
+
+<li>
+显示文件除了最后32个字节 <code>head -c -32 file</code>
+
+</ol>
+</ol>
 
 <h3 id="toc_1.1.14">tail 命令</h3>
+<p>
+<code>tail</code>用来显示文件的末尾。
+</p>
+<ol>
+<li>
+命令功能
+<br />  显示文件的结尾到标准输出。默认显示10行。常用来看日志文件。
+
+<li>
+命令格式
+<br />  tail [参数] [文件]
+
+<li>
+常用参数
+<br />  -f
+<br />        循环读取
+<br />  -q, --quiet, --silent
+<br />        不显示文件名
+<br />  -v, --verbose
+<br />        显示文件名
+<br />  -c, --bytes=k
+<br />        显示字节数
+<br />  -n, --lines=k
+<br />        显示行数
+<br />  --pid=PID
+<br />        与-f合用,表示在进程ID,PID死掉之后结束. 
+<br />  -s, --sleep-interval=N
+<br />        与-f合用,表示在每次反复的间隔休眠N秒 
+
+<li>
+常用示例
+
+<ol>
+<li>
+显示文件后5行 <code>tail -n 5 file</code>
+
+<li>
+从第5行开始显示文件 <code>tail -n -5 file</code>
+
+<li>
+循环查看文件内容
+<pre class="brush:bash">
+[root@localhost ~]# ping 192.168.120.204 &gt; test.log &amp;
+[1] 11891[root@localhost ~]# tail -f test.log 
+PING 192.168.120.204 (192.168.120.204) 56(84) bytes of data.
+64 bytes from 192.168.120.204: icmp_seq=1 ttl=64 time=0.038 ms
+64 bytes from 192.168.120.204: icmp_seq=2 ttl=64 time=0.036 ms
+64 bytes from 192.168.120.204: icmp_seq=3 ttl=64 time=0.033 ms
+64 bytes from 192.168.120.204: icmp_seq=4 ttl=64 time=0.027 ms
+64 bytes from 192.168.120.204: icmp_seq=5 ttl=64 time=0.032 ms
+64 bytes from 192.168.120.204: icmp_seq=6 ttl=64 time=0.026 ms
+64 bytes from 192.168.120.204: icmp_seq=7 ttl=64 time=0.030 ms
+64 bytes from 192.168.120.204: icmp_seq=8 ttl=64 time=0.029 ms
+64 bytes from 192.168.120.204: icmp_seq=9 ttl=64 time=0.044 ms
+64 bytes from 192.168.120.204: icmp_seq=10 ttl=64 time=0.033 ms
+64 bytes from 192.168.120.204: icmp_seq=11 ttl=64 time=0.027 ms
+[root@localhost ~]#
+</pre>
+
+</ol>
+</ol>
 
 <h2 id="toc_1.2">文件查找</h2>
 <h3 id="toc_1.2.1">which 命令</h3>
