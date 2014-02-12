@@ -256,12 +256,14 @@ linux中创建指定名称的目录。要求创建目录的用户在当前目录
 
 <li>
 常用参数
-<br />  -m, --mode=MODE
-<br />        set file mode (as in chmod), not a=rwx - umask
-<br />  -p, --parents
-<br />        可以是一个路径名称，若此时路径中有某些目录不存在，系统会自动建立那些还不存在的目录。
-<br />  -v, --verbose
-<br />        创建新目录时显示信息
+<pre class="brush:bash">
+  -m, --mode=MODE
+        set file mode (as in chmod), not a=rwx - umask
+  -p, --parents
+        可以是一个路径名称，若此时路径中有某些目录不存在，系统会自动建立那些还不存在的目录。
+  -v, --verbose
+        创建新目录时显示信息
+</pre>
 
 <li>
 常用示例
@@ -306,10 +308,12 @@ drwxrwxrwx 2 waikeung waikeung 4096 Feb  5 20:10 a
 
 <li>
 常用参数
-<br />  -p
-<br />        递归的删除目录，当子目录删除后父目录为空时，也删除父目录。
-<br />  -v,  --verbose
-<br />        显示指令执行过程
+<pre class="brush:bash">
+  -p
+        递归的删除目录，当子目录删除后父目录为空时，也删除父目录。
+  -v,  --verbose
+        显示指令执行过程
+</pre>
 
 <li>
 常用示例
@@ -341,14 +345,16 @@ linux中删除文件的命令为<code>rm</code>。<code>rm</code>是最常用的
 
 <li>
 常用参数
-<br />  -f, --force
-<br />        忽略不存在的文件,不给出提示
-<br />  -i，--interactive
-<br />        进行交互式删除
-<br />  -r, -R, --recursive
-<br />        将列出的全部目录和子目录均递归删除
-<br />  -v, --verbose
-<br />        显示指令执行过程
+<pre class="brush:bash">
+  -f, --force
+        忽略不存在的文件,不给出提示
+  -i，--interactive
+        进行交互式删除
+  -r, -R, --recursive
+        将列出的全部目录和子目录均递归删除
+  -v, --verbose
+        显示指令执行过程
+</pre>
 
 <li>
 命令示例
@@ -407,28 +413,30 @@ waikeung@waikeung-ThinkPad:/tmp$
 
 <li>
 常用参数
-<br />  -a, --archive
-<br />        等于 -dR --preserve=all
-<br />  -d
-<br />        等于 --no-dereference --preserve=links,拷贝时保留链接
-<br />  -f, --force
-<br />        如果目标文件无法打开则将其删除并重试(当 -n 选项存在时则不需要再选此项)
-<br />  -i, --interactive
-<br />        交互式复制(使用-n选项失效)
-<br />  -l, --link
-<br />        建立硬链接而不是复制
-<br />  -n, --no-clobber
-<br />        不要覆盖已经存在的文件
-<br />  -p
-<br />        复制源文件内容后，还将其修改时间和访问权限也复制到新文件
-<br />  -R, -r, --recursive
-<br />        复制目录及目录内的所有项目
-<br />  -s, --symbolic-link
-<br />        复制成符号链接文件
-<br />  -T, --no-target-directory
-<br />        把目标当成一个普通文件
-<br />  -u, --update
-<br />        只会在源文件的修改时间较目标文件新时，才会复制
+<pre class="brush:bash">
+  -a, --archive
+        等于 -dR --preserve=all
+  -d
+        等于 --no-dereference --preserve=links,拷贝时保留链接
+  -f, --force
+        如果目标文件无法打开则将其删除并重试(当 -n 选项存在时则不需要再选此项)
+  -i, --interactive
+        交互式复制(使用-n选项失效)
+  -l, --link
+        建立硬链接而不是复制
+  -n, --no-clobber
+        不要覆盖已经存在的文件
+  -p
+        复制源文件内容后，还将其修改时间和访问权限也复制到新文件
+  -R, -r, --recursive
+        复制目录及目录内的所有项目
+  -s, --symbolic-link
+        复制成符号链接文件
+  -T, --no-target-directory
+        把目标当成一个普通文件
+  -u, --update
+        只会在源文件的修改时间较目标文件新时，才会复制
+</pre>
 
 <li>
 常用示例
@@ -465,12 +473,14 @@ linux下用来移动文件或修改文件名的命令
 
 <li>
 常用参数
-<br />  -f, --force
-<br />        如果目标文件爱你存在，直接覆盖。
-<br />  -i, --interactive
-<br />        交互式移动或重命名。
-<br />  -t, --target-directory=DIRECTORY
-<br />        把所有文件移动到目标目录，适用于移动多文件。
+<pre class="brush:bash">
+  -f, --force
+        如果目标文件爱你存在，直接覆盖。
+  -i, --interactive
+        交互式移动或重命名。
+  -t, --target-directory=DIRECTORY
+        把所有文件移动到目标目录，适用于移动多文件。
+</pre>
 
 <li>
 常用示例
@@ -519,20 +529,22 @@ linux下用来移动文件或修改文件名的命令
 
 <li>
 常用参数
-<br />  -A, --show-all
-<br />        等价与 -vET
-<br />  -b, --number-nonblank
-<br />        对非空的行输出行编号。
-<br />  -E, --show-ends
-<br />        在每行结束处显示$
-<br />  -n, --number
-<br />        对所有输出行显示行编号
-<br />  -s, --squeeze-blank
-<br />        多行空白行替换为一行空白行
-<br />  -T, --show-tabs
-<br />        将TAB键显示为^I
-<br />  -v, --show-nonprinting
-<br />        用^和M-引用，除了LFD和TAB
+<pre class="brush:bash">
+  -A, --show-all
+        等价与 -vET
+  -b, --number-nonblank
+        对非空的行输出行编号。
+  -E, --show-ends
+        在每行结束处显示$
+  -n, --number
+        对所有输出行显示行编号
+  -s, --squeeze-blank
+        多行空白行替换为一行空白行
+  -T, --show-tabs
+        将TAB键显示为^I
+  -v, --show-nonprinting
+        用^和M-引用，除了LFD和TAB
+</pre>
 
 <li>
 常用示例
@@ -580,10 +592,146 @@ waikeung@waikeung-ThinkPad:/tmp$
 
 </ol>
 </ol>
-
 <h3 id="toc_1.1.11">more 命令</h3>
+<p>
+<code>more</code>命令有点像<code>cat</code>命令，但有不同，<code>cat</code>是直接全部显示在屏幕上，而<code>more</code>是一页一页显示的，通过空格键(space)就往下一页。b键前往上一页，只对文件有效，对管道无效。
+</p>
+<ol>
+<li>
+命令功能
+<br />  查看文件的内容，可以按页来查看文件，还支持直接搜索字符串的功能。
+
+<li>
+命令格式
+<br />  more [参数] [文件]
+
+<li>
+常用参数
+<pre class="brush:bash">
+  +n
+        从第n行开始显示
+  -n
+        定义屏幕大小为n行
+  -c
+        清屏，然后开始显示
+  -d
+        显示提示"Press space to continue，’q’ to quit"，同时禁用响铃
+  -p
+        通过清除窗口而不是滚屏来对文件进行换页
+  -s
+        把连续的多个空行显示为一行
+</pre>
+
+<li>
+常用操作命令
+<br />  /string   查找string
+<br />  Enter     向下滚动n行，需要定义，默认为1行
+<br />  Space     向下滚动一屏
+<br />  =         输出当前行号
+<br />  b         返回上一屏
+<br />  :f        输出当前文件名和当前行号
+<br />  V         调用vi编辑器
+<br />  ！cmd     调用shell，并执行cmd
+<br />  q         退出more
+
+<li>
+常用示例
+
+<ol>
+<li>
+显示文件中第5行起的内容 <code>more +5 file</code>
+
+<li>
+配合管道适用
+<pre class="brush:bash">
+waikeung@waikeung-ThinkPad:/$ ls -l | more -5
+total 87
+drwxr-xr-x   2 root root  4096 Jan 17 10:08 bin
+drwxr-xr-x   4 root root  3072 Jan 17 10:12 boot
+drwxr-xr-x   2 root root  4096 Dec 10 18:00 cdrom
+drwxr-xr-x  18 root root  4460 Feb  9 07:32 dev
+--More--
+</pre>
+
+</ol>
+</ol>
 
 <h3 id="toc_1.1.12">less 命令</h3>
+<p>
+<code>less</code>也是查看文件，对文件分页显示的工具。与<code>more</code>相比，<code>less</code>的功能更加强大。
+</p>
+
+<ol>
+<li>
+命令功能
+<br />  与<code>more</code>类似。但<code>less</code>能随意浏览文件，还能向前向后搜索。
+
+<li>
+命令格式
+<br />  less [参数] 文件
+
+<li>
+常用参数
+<pre class="brush:bash">
+  -b
+        &lt;缓冲区大小&gt; 设置缓冲区的大小
+  -e
+        当文件显示结束后，自动离开
+  -f
+        强迫打开特殊文件，例如外围设备代号、目录和二进制文件
+  -g
+        只标志最后搜索的关键词
+  -i
+        忽略搜索时的大小写
+  -m
+        显示类似more命令的百分比
+  -N
+        显示每行的行号
+  -o
+        &lt;文件名&gt; 将less 输出的内容在指定文件中保存起来
+  -Q
+        不使用警告音
+  -s
+        显示连续空行为一行
+  -S
+        行过长时间将超出部分舍弃
+  -x
+        &lt;数字&gt; 将“tab”键显示为规定的数字空格
+</pre>
+
+<li>
+常用操作命令
+<br />  /string： 向下搜索“string”的功能
+<br />  ?string： 向上搜索“string”的功能
+<br />  n：       重复前一个搜索（与 / 或 ? 有关）
+<br />  N：       反向重复前一个搜索（与 / 或 ? 有关）
+<br />  b         向后翻一页
+<br />  d         向后翻半页
+<br />  h         显示帮助界面
+<br />  Q         退出less 命令
+<br />  u         向前滚动半页
+<br />  y         向前滚动一行
+<br />  空格键    滚动一行
+<br />  回车键    滚动一页
+<br />  [pagedown]:   向下翻动一页
+<br />  [pageup]：    向上翻动一页
+
+<li>
+常用示例
+
+<ol>
+<li>
+查看文件 <code>less file</code>
+
+<li>
+ps查看进程用less分页显示 <code>ps aux | less</code>
+
+</ol>
+</ol>
+
+<p>
+更多用法查看 <code>man less</code>
+</p>
 
 <h3 id="toc_1.1.13">head 命令</h3>
 <p>
@@ -600,14 +748,16 @@ waikeung@waikeung-ThinkPad:/tmp$
 
 <li>
 常用参数
-<br />  -c, --bytes=[-]k
-<br />        显示字节数
-<br />  -n, --lines=[-]k
-<br />        显示行数
-<br />  -q, --quiet, --silent
-<br />        不显示文件名
-<br />  -v, --verbose
-<br />        显示文件名
+<pre class="brush:bash">
+  -c, --bytes=[-]k
+        显示字节数
+  -n, --lines=[-]k
+        显示行数
+  -q, --quiet, --silent
+        不显示文件名
+  -v, --verbose
+        显示文件名
+</pre>
 
 <li>
 常用示例
@@ -643,20 +793,22 @@ waikeung@waikeung-ThinkPad:/tmp$
 
 <li>
 常用参数
-<br />  -f
-<br />        循环读取
-<br />  -q, --quiet, --silent
-<br />        不显示文件名
-<br />  -v, --verbose
-<br />        显示文件名
-<br />  -c, --bytes=k
-<br />        显示字节数
-<br />  -n, --lines=k
-<br />        显示行数
-<br />  --pid=PID
-<br />        与-f合用,表示在进程ID,PID死掉之后结束. 
-<br />  -s, --sleep-interval=N
-<br />        与-f合用,表示在每次反复的间隔休眠N秒 
+<pre class="brush:bash">
+  -f
+        循环读取
+  -q, --quiet, --silent
+        不显示文件名
+  -v, --verbose
+        显示文件名
+  -c, --bytes=k
+        显示字节数
+  -n, --lines=k
+        显示行数
+  --pid=PID
+        与-f合用,表示在进程ID,PID死掉之后结束. 
+  -s, --sleep-interval=N
+        与-f合用,表示在每次反复的间隔休眠N秒 
+</pre>
 
 <li>
 常用示例
@@ -692,7 +844,52 @@ PING 192.168.120.204 (192.168.120.204) 56(84) bytes of data.
 </ol>
 
 <h2 id="toc_1.2">文件查找</h2>
+<p>
+想要查找某个文件，就需要用到linux上的查找命令。
+</p>
+<ul>
+<li>
+which 查看可执行文件的位置
+
+<li>
+whereis 查看文件的位置
+
+<li>
+locate  配合数据库查看文件的位置
+
+<li>
+find  实际搜索硬盘查询文件名称
+
+</ul>
 <h3 id="toc_1.2.1">which 命令</h3>
+<p>
+<code>which</code>是通过PATH变量来搜索某个命令的位置。通过<code>which</code>可以查看某个系统命令是否存在，以及它的位置。
+</p>
+<ol>
+<li>
+命令功能
+<br />  <code>which</code>是通过PATH变量来搜索某个命令的位置。
+
+<li>
+命令格式
+<br />  which 可执行文件名称
+
+<li>
+常用参数
+<br />  一般我都不怎么用到参数 
+
+<li>
+常用示例
+
+<ol>
+<li>
+查找命令，显示命令路径 <code>which command</code>
+
+<li>
+<code>which</code>是找不到bash的内建命令的,比如<code>cd</code>。因为<code>which</code>默认是找PATH内的命令。
+
+</ol>
+</ol>
 
 <h3 id="toc_1.2.2">whereis 命令</h3>
 
