@@ -1,4 +1,0 @@
-graph example1 {
-    A -- B;
-    A -- C;
-}

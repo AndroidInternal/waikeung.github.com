@@ -1,6 +1,0 @@
-digraph example2 {
-    A -> B;
-    B -> C;
-    B -> D;
-    D -> E;
-}
