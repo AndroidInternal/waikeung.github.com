@@ -1,90 +1,53 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-<meta http-equiv="X-UA-Compatible" content="IE=7" />
-<meta name="keywords" content="linux,python,vim,blog,waikeung,waikeungshen,博客,编程,代码,算法,数据结构" />
-<meta name="description" content="" />
-<link rel="Stylesheet" type="text/css" href="style.css">
-<link rel="Stylesheet" type="text/css" href="index.css">
-<title>WaikeungShen's Blog</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="scripts/shCore.js"></script>
-<script type="text/javascript" src="scripts/shBrushBash.js"></script>
-<script type="text/javascript" src="scripts/shBrushCpp.js"></script>
-<script type="text/javascript" src="scripts/shBrushCss.js"></script>
-<script type="text/javascript" src="scripts/shBrushPython.js"></script>
-<script type="text/javascript" src="scripts/shBrushPhp.js"></script>
-<script type="text/javascript" src="scripts/shBrushSql.js"></script>
-<script type="text/javascript" src="scripts/shBrushJava.js"></script>
-<link type="text/css" rel="stylesheet" href="styles/shCore.css"/>
-<link type="text/css" rel="stylesheet" href="styles/shThemeDefault.css"/>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
-</head>
-<body>
-<div id="header">
-    <h1><a href="index.html">WaikeungShen'Blog</a></h1>
-</div>
-<div id="main">
+---
+title: WaikeungShen' Homepage
+layout: page
+---
 
-
-
-
-<p>
-Hi, I'm <strong>Waikeung Shen</strong>, I'm a <strong>student</strong> in <strong>HangZhou Dianzi University</strong>.
-</p>
-
-<p>
-这个网站是我托管在github上的，用vimwiki搭建的网站。
-</p>
-
-
-<h2 id="toc_0.1">博客</h2>
-<p>
-<a href="blog/index.html">这里</a>主要记录的是一些我平时整理的知识，一些技术方面我所感兴趣，有意思的事物。
-</p>
-
-<p>
-如果我不懒的话，我会及时更新这些的。
-</p>
-
-<h2 id="toc_0.2">项目&amp;工具</h2>
-<p>
-这里是一些我的小项目及我的经常使用的开发工具。
-</p>
-
-<h2 id="toc_0.3">资源&amp;文档</h2>
-
-<h2 id="toc_0.4">联系我</h2>
-<ul>
-<li>
-Email: waikeungshen@gmail.com
-
-<li>
-Facebook: www.facebook.com/waikeung.shen
-
-<li>
-twitter: twitter.com/waikeungshen
-
-<li>
-新浪微博: <a href="http://weibo.com/waikeungshen">http://weibo.com/waikeungshen</a>
-
+<ul class="listing">
+{% for post in paginator.posts %}
+  {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+  {% if year != y %}
+    {% assign year = y %}
+    <li class="listing-seperator">{{ y }}</li>
+  {% endif %}
+  <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
 </ul>
 
-</div>
-<div id="footer">
-2013-2014 Creat by vimwiki
-</div>
-</body>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<div id="post-pagination" class="paginator">
 
-  ga('create', 'UA-47865607-1', 'waikeungshen.info');
-  ga('send', 'pageview');
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+    <a href="/"><前页</a>
+    {% else %}
+    <a href="/page{{paginator.previous_page}}"><前页</a>
+    {% endif %}
+  {% else %}
+    <span class="previous disabled"><前页</span>
+  {% endif %}
 
-</script>
-</html>
+      {% if paginator.page == 1 %}
+      <span class="current-page">1</span>
+      {% else %}
+      <a href="/">1</a>
+      {% endif %}
+
+    {% for count in (2..paginator.total_pages) %}
+      {% if count == paginator.page %}
+      <span class="current-page">{{count}}</span>
+      {% else %}
+      <a href="/page{{count}}">{{count}}</a>
+      {% endif %}
+    {% endfor %}
+
+  {% if paginator.next_page %}
+    <a class="next" href="/page{{paginator.next_page}}">后页></a>
+  {% else %}
+    <span class="next disabled" >后页></span>
+  {% endif %}
+  (共{{ paginator.total_posts }}篇)
+</div>
+
