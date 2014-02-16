@@ -1,5 +1,5 @@
 WaikeungShen' Blog
 
-感谢webfrogs[http://webfrogs.me/]，和Yonsm[yonsm.net]两位同学的模板。
+感谢[webfrogs](http://webfrogs.me/)，和[Yons](yonsm.net)两位同学的模板。
 
 
