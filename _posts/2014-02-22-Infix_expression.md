@@ -11,6 +11,7 @@ tags: [数据结构, 算法]
 
 ##转换算法
 从左向右扫描，每一个字符：
+
 1. 若当前字符为数字字符或小数点时，将其放入输出队列中;
 2. 若当前字符为左括号"("，则将其压入栈中（不需要与栈顶元素进行比较），在不遇到匹配的右括号")"时，绝不从栈中移走左括号;
 3. 若当前字符为操作符时，则将该操作符与栈顶元素进行比较：
@@ -20,6 +21,7 @@ tags: [数据结构, 算法]
 
 ##实现
 算法中需要判断，当前字符是否是括号字符，这个简单，代码如下:
+
 ```c
 int isBrackets (char c)
 {
@@ -29,7 +31,9 @@ int isBrackets (char c)
         return 0;
 }
 ```
+
 同时还需要一个函数来判断操作符的优先级
+
 ```c
 int getPriority (char c)
 {
@@ -47,7 +51,9 @@ int getPriority (char c)
     }
 }
 ```
+
 下面的是转换代码
+
 ```c
 void ChangeToPostfix(queue<char> &str, stack<char> &op, queue<char> &out)
 {
@@ -68,7 +74,9 @@ void ChangeToPostfix(queue<char> &str, stack<char> &op, queue<char> &out)
     }
 }
 ```
+
 单独把字符是操作符的处理作为一个函数
+
 ```c
 void check (char c, stack<char> &op, queue<char> &out)
 {
