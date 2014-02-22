@@ -3,7 +3,7 @@ layout: post
 title: "每天一个linux命令(5)之rmdir"
 description: "linux命令rmdir"
 category: 每天一个linux命令
-tags: [linux, command, rmdir]
+tags: [linux, command]
 ---
 
 `rmdir`命令是删除一个空目录。一个目录被删除之前必须是空的，删除目录必须对其父目录具有写的权限。

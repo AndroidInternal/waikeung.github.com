@@ -3,7 +3,7 @@ layout: post
 title: "每天一个linux命令(4)之mkdir"
 description: "linux命令mkdir"
 category: 每天一个linux命令
-tags: [linux, command, mkdir]
+tags: [linux, command]
 ---
 
 linux中创建指定名称的目录。要求创建目录的用户在当前目录中具有写权限，同时指定的目录名不能是当前目录中已有的目录。
