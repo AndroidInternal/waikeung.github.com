@@ -14,12 +14,12 @@ mkdir [参数] 目录
 ```
 ##参数
 
-    -m, --mode=MODE
-          set file mode (as in chmod), not a=rwx - umask
-    -p, --parents
-          可以是一个路径名称，若此时路径中有某些目录不存在，系统会自动建立那些还不存在的目录。
-    -v, --verbose
-          创建新目录时显示信息
+* -m, --mode=MODE
+      set file mode (as in chmod), not a=rwx - umask
+* -p, --parents
+      可以是一个路径名称，若此时路径中有某些目录不存在，系统会自动建立那些还不存在的目录。
+* -v, --verbose
+      创建新目录时显示信息
 
 ##例子
 
