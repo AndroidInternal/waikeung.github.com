@@ -74,7 +74,6 @@ void ChangeToPostfix(queue<char> &str, stack<char> &op, queue<char> &out)
     }
 }
 ```
-
 单独把字符是操作符的处理作为一个函数
 
 ```c
@@ -108,3 +107,5 @@ void check (char c, stack<char> &op, queue<char> &out)
     }
 }
 ```
+###参考
+* [利用栈实现计算器功能](http://blog.csdn.net/mvpsendoh/article/details/6440835)
