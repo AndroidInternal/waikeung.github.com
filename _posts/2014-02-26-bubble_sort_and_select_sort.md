@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "冒泡排序和选择排序"
+title: "浅酌算法:冒泡排序和选择排序"
 description: "关于冒泡排序和选择排序的一些事"
 category: 数据结构与算法
 tags: [算法, 排序]
