@@ -94,5 +94,6 @@ void Merge(int array[], int p, int q, int r)
     free(L);
     free(R);
 }
+```
 
-递归过程也之前的一样。
+递归过程和之前的一样。
