@@ -60,10 +60,10 @@ void SelectionSort(int array[], int n)
     for (i = 0; i < n-1; i++) {
         min_index = i;
         for (j=i+1; j < n; j++) {
-            if (a[j] < a[min_index)
+            if (array[j] < array[min_index)
                 min_index = j;
         }
-        swap(a+i, a+min_index);
+        swap(array+i, array+min_index);
     }
 }
 ```
