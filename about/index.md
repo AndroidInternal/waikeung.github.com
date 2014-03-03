@@ -4,7 +4,7 @@ layout: page
 comments: no
 ---
 
-在校大学生一枚。 喜欢linux，github等。		
+在校大学生一枚。 喜欢linux，github, vim等。		
 
 ----
 
