@@ -4,4 +4,4 @@ layout: page
 comments: no
 ---
 
-* [voiddog](www.voiddog.com)
+* [voiddog](http://www.voiddog.com)
