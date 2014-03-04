@@ -4,4 +4,5 @@ layout: page
 comments: no
 ---
 
-* [voiddog](http://www.voiddog.com)
+* [不想死就早点睡 voiddog](http://www.voiddog.com)
+* [失意乐园](http://li-rui.org/)
