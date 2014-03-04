@@ -74,8 +74,8 @@ chmod [-Rcv] mode file
 
 `chmod [who] [+|-|=] [mode] file`
 
-* + 加入
-* - 除去
+* \+ 加入
+* \- 除去
 * = 设置
 
 将.bashrc设定为rwxr-xr-x:
