@@ -17,16 +17,17 @@ tags: [算法, 排序]
 3. 再分别对左右两个区块递归重复操作1、2，直到各区块只有一个元素。
 
 
-    void quicksort(int a[], int left, int right)
-    {
-        int i;
-    
-        if (right <= left)
-            return;
-        i = partition(a, left, right);
-        quicksort(a, left, i-1);
-        quicksort(a, i+1, right);
-    }
+        void quicksort(int a[], int left, int right)
+        {
+            int i;
+        
+            if (right <= left)
+                return;
+            i = partition(a, left, right);
+            quicksort(a, left, i-1);
+            quicksort(a, i+1, right);
+        }
+
 
 上面代码中left指数组的左下标, right指数组的右下标。这段递归的代码很容易理解，关键的函数就是划分函数partition。partition函数返回的是划分时基准数的下标。
 
