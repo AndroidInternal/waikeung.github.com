@@ -291,5 +291,5 @@ E' &rarr; &epsilon;
 
 ![语法树][2]
 
- [1]: ../assets/images/table.png
- [2]: ../assets/images/tree.png
+ [1]: /assets/images/table.png
+ [2]: /assets/images/tree.png

@@ -16,15 +16,17 @@ BeautifulSoup 不在python的标准库中，所以需要安装。
 
 下载后解压，然后进入目录，执行
 
-<pre>python setup.py build
+```
+python setup.py build
 python setup.py install
-</pre>
+```
 
 注意：这里`python setup.py install`需要以root身份安装。
 
 程序源码如下：
 
-<pre>#!/usr/bin/env python
+```
+#!/usr/bin/env python
 # _*_ coding:utf-8 _*_
 
 import os
@@ -84,4 +86,4 @@ for i in range(page_start, page_stop):
 
 print "爬虫结束活动......"
 print "报告：总计有 %d 张" % total
-</pre>
+```

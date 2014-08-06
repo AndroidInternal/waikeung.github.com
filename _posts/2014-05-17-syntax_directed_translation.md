@@ -91,4 +91,4 @@ S-属性定义是只含有综合属性的语法制导定义。
 1.  将计算产生式右边某文法符号的继承属性的语义规则插入到此符号之前
 2.  将计算产生式左边非终结符号综合属性的语义规则放在产生式右端的末尾。
 
- [1]: ../assets/images/DependencyGraph.png
+ [1]: /assets/images/DependencyGraph.png

@@ -22,4 +22,4 @@ tags: [生活,大学]
 
 ![截图][1]
 
- [1]: ../assets/images/20140606210501.png 
+ [1]: /assets/images/20140606210501.png 

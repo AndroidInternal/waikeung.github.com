@@ -99,4 +99,4 @@ FOLLOW(A) = { a | S ![*次推导][1] ...Aa... }
 
 SELECT集的作用就是将FIRST集和FOLLOW集合并。
 
- [1]: ../assets/images/CodeCogsEqn1.png
+ [1]: /assets/images/CodeCogsEqn1.png
