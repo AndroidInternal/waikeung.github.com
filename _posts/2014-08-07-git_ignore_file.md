@@ -1,6 +1,6 @@
 ---
 layout: post
-title: “git忽略文件gitignore”
+title: "git忽略文件gitignore"
 description: ""
 category: 开发工具
 tags: [git,github]
