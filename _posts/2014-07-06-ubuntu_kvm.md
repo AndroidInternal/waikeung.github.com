@@ -7,7 +7,9 @@ tags: [kvm,libvirt,ubuntu]
 ---
 
 KVM是 Kernel-based Virtual Machine 的简称，是一个开源的系统虚拟化模块。是一种基于内核的虚拟机软件。 
-## 证实主机支持硬件虚拟化 验证主机的处理器是否具备硬件虚拟化的条件（比如英特尔VT或AMD-V） 运行下面的命令 
+## 证实主机支持硬件虚拟化
+
+验证主机的处理器是否具备硬件虚拟化的条件（比如英特尔VT或AMD-V） 运行下面的命令 
 
     egrep '(vmx|svm)' --color /proc/cpuinfo  如果输出中不含
 
@@ -22,7 +24,9 @@ KVM是 Kernel-based Virtual Machine 的简称，是一个开源的系统虚拟�
     Id Name                 State
     ----------------------------------
 
-## 配置桥接网络 下面需要在服务器上建立网桥，以便可以从其他主机访问建立的虚拟机，就好像虚拟机是网络中得物理系统。 
+## 配置桥接网络
+
+下面需要在服务器上建立网桥，以便可以从其他主机访问建立的虚拟机，就好像虚拟机是网络中得物理系统。 
 
 ### 安装必要的程序包
 
@@ -88,7 +92,9 @@ KVM是 Kernel-based Virtual Machine 的简称，是一个开源的系统虚拟�
 
 ## 创建虚拟机
 
-### 从命令行创建虚拟机 虚拟机的配置文件存储在一个域XML文件中。所以创建虚拟机之前就需要准备好这个域XML文件。 下面是一个虚拟机的域XML文件示例。按照自己的需求在这个文件上定制自己的XML文件。 
+### 从命令行创建虚拟机
+
+虚拟机的配置文件存储在一个域XML文件中。所以创建虚拟机之前就需要准备好这个域XML文件。 下面是一个虚拟机的域XML文件示例。按照自己的需求在这个文件上定制自己的XML文件。 
 
     <domain type='kvm'>
       <name>vm01</name>
@@ -175,7 +181,9 @@ KVM是 Kernel-based Virtual Machine 的简称，是一个开源的系统虚拟�
 
     $ brctl show
 
-### 通过virt-manager创建虚拟机 安装虚拟机virtual machine manager 
+### 通过virt-manager创建虚拟机 
+
+安装虚拟机virtual machine manager 
 
     sudo apt-get install virt-manager virt-viewer 图形界面安装很简单，这里就不多介绍了。 
 
@@ -189,6 +197,4 @@ KVM是 Kernel-based Virtual Machine 的简称，是一个开源的系统虚拟�
         virsh start vm01
 
 3.  关闭KVM虚拟机 
-        virsh shutdown vm01 结语：到此，基本上KVM虚拟机已经能使用了。其他的以后再说明。在实际运用的时候，考虑移植性，还是不要将整型数赋值给枚举型。如果一定要的话，才用强制转换，如
-
-`b = (enum weekday)1`。
+        virsh shutdown vm01 结语：到此，基本上KVM虚拟机已经能使用了。
