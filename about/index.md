@@ -1,7 +1,7 @@
 ---
 title: About me
 layout: page
-comments: no
+comments: yes
 ---
 
 在校大学生一枚。 喜欢linux，github, vim等。		
